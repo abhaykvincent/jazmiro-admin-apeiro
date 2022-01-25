@@ -4,6 +4,7 @@ import './style/page.scss';
 import './style/navigation.scss';
 
 import './style/home.scss';
+import './style/orders.scss';
 
 function App() {
 
@@ -219,7 +220,39 @@ function App() {
             <div className="page-content-inner">
 
               <div className="search"></div>
-              <div className="order-sales"></div>
+              <div className="order-sales">
+                <div className="options">
+                  <div className="option">7 days</div>
+                  <div className="option">30 days</div>
+                  <div className="option">90 days</div>
+                </div>
+                <div className="quick-views">
+
+                <div className="orders-quick-view quick-view">
+                  <div className="head">Orders</div>
+                  <div className="body">
+                    <div className="order-count count">
+                    12
+                    </div>
+                    <div className="order-change change">
+                      33%
+                    </div>
+                  </div>
+                </div>
+                <div className="sales-quick-view quick-view">
+                  <div className="head">Sales</div>
+                  <div className="body">
+                    <div className="sales-count count">
+                    12
+                    </div>
+                    <div className="sales-change change">
+                      33%
+                    </div>
+                  </div>
+                </div>
+
+                </div>
+              </div>
 
             </div>
           </div>
