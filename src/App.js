@@ -84,9 +84,10 @@ function App() {
                 </div>
 
               </section>
+
+              <p className="developed-at-apeiro">Developed at Apeiro Inc.</p>
             </div>
           </div>
-
         </div>
       </div>
       <div className="sheet addProduct hide">

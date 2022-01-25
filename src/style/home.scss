@@ -22,16 +22,19 @@
         border: 1px solid rgba(0, 0, 0, 0.1);
         border-bottom: none;
         padding: 8px*1 8px*1;
+        transition-duration: 0.2s;
         &:last-of-type{
             border-bottom: 1px solid rgba(0, 0, 0, 0.1);
         }
         &:hover{
 
         background-color: rgba(0, 0, 0, 0.05);
-        transition-duration: 0.05s;
+        transition-duration: 0.2s;
         transition-delay: 0.1s;
             .menu-action{
-                transform: translateX(4px)
+                transform: translateX(4px);
+                transition-duration: 0.2s;
+                transition-delay: 0.1s;
             }
         }
         .menu-icon{
@@ -45,8 +48,15 @@
         .menu-action{
             height: 8px*4;
             width: 8px*4;
+            transition-duration: 0.2s;
+            transition-delay: 0.1s;
             
             background-image: url('../media/images/icons/ios-arrow-front__green.svg')
         }
     }
+}
+.developed-at-apeiro{
+        color: rgba(0, 0, 0, 0.5);
+        text-align: center;
+        padding: 8px*2;
 }
