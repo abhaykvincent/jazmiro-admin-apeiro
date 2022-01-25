@@ -1,5 +1,5 @@
 
-import './App.css';
+import './style/App.css';
 import './style/page.scss';
 import './style/navigation.scss';
 
