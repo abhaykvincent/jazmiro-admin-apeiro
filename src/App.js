@@ -3,6 +3,8 @@ import './style/App.css';
 import './style/page.scss';
 import './style/navigation.scss';
 
+import './style/home.scss';
+
 function App() {
 
   const changePage = (page) => { 
@@ -33,7 +35,7 @@ function App() {
     document.querySelector(`.sheet.${sheet}`).classList.add('active');
     document.querySelector(`.sheet.${sheet}`).classList.remove('hide');
   }
-  //close spesipic sheet
+  //close spesipc sheet
   const closeSheet = (sheet) => {
     document.querySelector('.sheet-cover-black').classList.remove('active');
     document.querySelector(`.sheet.${sheet}`).classList.add('hide');
@@ -59,85 +61,33 @@ function App() {
           </div>
           <div className="page-content">
             <div className="page-content-inner">
-              <p>
-                Lorem ipsum dolor sit amet, consectetur adipiscing elit.
-              </p>
-              <br/>
-              <p>
-                Lorem ipsum dolor sit amet, consectetur adipiscing elit.
-              </p>
-              <br/>
-              <p>
-                Lorem ipsum dolor sit amet, consectetur adipiscing elit.
-              </p>
-              <br/>
-              <p>
-                Lorem ipsum dolor sit amet, consectetur adipiscing elit.
-              </p>
-              <br/>
-              <p>
-                Lorem ipsum dolor sit amet, consectetur adipiscing elit.
-              </p>
-              <br/>
-              <p>
-                Lorem ipsum dolor sit amet, consectetur adipiscing elit.
-              </p>
-              <br/>
-              <p>
-                Lorem ipsum dolor sit amet, consectetur adipiscing elit.
-              </p>
-              <br/>
-              <p>
-                Lorem ipsum dolor sit amet, consectetur adipiscing elit.
-              </p>
-              <br/>
-              <p>
-                Lorem ipsum dolor sit amet, consectetur adipiscing elit.
-              </p>
-              <br/>
-              <p>
-                Lorem ipsum dolor sit amet, consectetur adipiscing elit.
-              </p>
-              <br/>
-              <p>
-                Lorem ipsum dolor sit amet, consectetur adipiscing elit.
-              </p>
-              <br/>
-              <p>
-                Lorem ipsum dolor sit amet, consectetur adipiscing elit.
-              </p>
-              <br/>
-              <p>
-                Lorem ipsum dolor sit amet, consectetur adipiscing elit.
-              </p>
-              <br/>
-              <p>
-                Lorem ipsum dolor sit amet, consectetur adipiscing elit.
-              </p>
-              <br/>
-              <p>
-                Lorem ipsum dolor sit amet, consectetur adipiscing elit.
-              </p>
-              <br/>
-              <p>
-                Lorem ipsum dolor sit amet, consectetur adipiscing elit.
-              </p>
-              <br/>
-              <p>
-                Lorem ipsum dolor sit amet, consectetur adipiscing elit.
-              </p>
-              <br/>
-              <p>
-                Lorem ipsum dolor sit amet, consectetur adipiscing elit.
-              </p>
-              <br/>
-              <p>
-                Lorem ipsum dolor sit amet, consectetur adipiscing elit.
-              </p>
-              <br/>
+              <section className="welcome">
+                <h1>Welcome to Apeiro, Mirza</h1>
+                <p>Moving along nicely</p>
+              </section>
+              <section className="quick-menus">
+
+                <div className="quick-menu">
+                  <div className="menu-icon"></div>
+                  <div className="menu-title">New Order</div>
+                  <div className="menu-action"></div>
+                </div>
+                <div className="quick-menu">
+                  <div className="menu-icon"></div>
+                  <div className="menu-title">New Product</div>
+                  <div className="menu-action"></div>
+                </div>
+                <div className="quick-menu">
+                  <div className="menu-icon"></div>
+                  <div className="menu-title">New Customer</div>
+                  <div className="menu-action"></div>
+                </div>
+
+              </section>
+
+              <p className="developed-at-apeiro">Developed at Apeiro Inc.</p>
             </div>
           </div>
-
         </div>
       </div>
       <div className="sheet addProduct hide">
@@ -584,6 +534,7 @@ function App() {
       >
 
       </div>
+      
       <div className="navigation">
         <div className="navigation-inner">
 
