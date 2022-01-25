@@ -253,6 +253,25 @@ function App() {
 
                 </div>
               </div>
+              <section className="quick-menus">
+
+                <div className="quick-menu">
+                  <div className="menu-icon"></div>
+                  <div className="menu-title">New Order</div>
+                  <div className="menu-action"></div>
+                </div>
+                <div className="quick-menu">
+                  <div className="menu-icon"></div>
+                  <div className="menu-title">New Product</div>
+                  <div className="menu-action"></div>
+                </div>
+                <div className="quick-menu">
+                  <div className="menu-icon"></div>
+                  <div className="menu-title">New Customer</div>
+                  <div className="menu-action"></div>
+                </div>
+
+              </section>
 
             </div>
           </div>
