@@ -195,6 +195,7 @@ function App() {
 
               </div>
         </div>
+      
       <div className="page orders hide  ">
         <div className="page-inner">
 
@@ -255,22 +256,27 @@ function App() {
               </div>
               <section className="quick-menus">
 
-                <div className="quick-menu">
+                <div className="quick-menu"
+                  onClick={
+                    () => {
+                      openSheet('allOrders')
+                    }
+                  }
+                >
                   <div className="menu-icon"></div>
-                  <div className="menu-title">New Order</div>
+                  <div className="menu-title">All orders</div>
                   <div className="menu-action"></div>
                 </div>
                 <div className="quick-menu">
                   <div className="menu-icon"></div>
-                  <div className="menu-title">New Product</div>
+                  <div className="menu-title">Return orders</div>
                   <div className="menu-action"></div>
                 </div>
                 <div className="quick-menu">
                   <div className="menu-icon"></div>
-                  <div className="menu-title">New Customer</div>
+                  <div className="menu-title">Fulfilled Orders</div>
                   <div className="menu-action"></div>
                 </div>
-
               </section>
 
             </div>
@@ -278,6 +284,112 @@ function App() {
 
         </div>
       </div>
+      <div className="sheet allOrders hide">
+          <div className="sheet-inner">
+
+          <div className="sheet-header"
+            onTouchMove={
+              (e) => {
+                if (e.touches[0].clientY < 100) {
+                  closeSheet('allOrders')
+                }
+              }
+            }
+          >
+            <div className="sheet-header-inner">
+              <div className="header-button">
+              </div>
+              <div className="header-title">
+                <h3>All Orders</h3>
+              </div>
+              <div className="option">:</div>
+            </div>
+          </div>
+          <div className="sheet-content">
+            <div className="sheet-content-inner">
+              <p>
+                Lorem ipsum dolor sit amet, consectetur adipiscing elit.
+              </p>
+              <br/>
+              <p>
+                Lorem ipsum dolor sit amet, consectetur adipiscing elit.
+              </p>
+              <br/>
+              <p>
+                Lorem ipsum dolor sit amet, consectetur adipiscing elit.
+              </p>
+              <br/>
+              <p>
+                Lorem ipsum dolor sit amet, consectetur adipiscing elit.
+              </p>
+              <br/>
+              <p>
+                Lorem ipsum dolor sit amet, consectetur adipiscing elit.
+              </p>
+              <br/>
+              <p>
+                Lorem ipsum dolor sit amet, consectetur adipiscing elit.
+              </p>
+              <br/>
+              <p>
+                Lorem ipsum dolor sit amet, consectetur adipiscing elit.
+              </p>
+              <br/>
+              <p>
+                Lorem ipsum dolor sit amet, consectetur adipiscing elit.
+              </p>
+              <br/>
+              <p>
+                Lorem ipsum dolor sit amet, consectetur adipiscing elit.
+              </p>
+              <br/>
+              <p>
+                Lorem ipsum dolor sit amet, consectetur adipiscing elit.
+              </p>
+              <br/>
+              <p>
+                Lorem ipsum dolor sit amet, consectetur adipiscing elit.
+              </p>
+              <br/>
+              <p>
+                Lorem ipsum dolor sit amet, consectetur adipiscing elit.
+              </p>
+              <br/>
+              <p>
+                Lorem ipsum dolor sit amet, consectetur adipiscing elit.
+              </p>
+              <br/>
+              <p>
+                Lorem ipsum dolor sit amet, consectetur adipiscing elit.
+              </p>
+              <br/>
+              <p>
+                Lorem ipsum dolor sit amet, consectetur adipiscing elit.
+              </p>
+              <br/>
+              <p>
+                Lorem ipsum dolor sit amet, consectetur adipiscing elit.
+              </p>
+              <br/>
+              <p>
+                Lorem ipsum dolor sit amet, consectetur adipiscing elit.
+              </p>
+              <br/>
+              <p>
+                Lorem ipsum dolor sit amet, consectetur adipiscing elit.
+              </p>
+              <br/>
+              <p>
+                Lorem ipsum dolor sit amet, consectetur adipiscing elit.
+              </p>
+              <br/>
+            </div>
+          </div>
+
+              </div>
+        </div>
+      
+      
       <div className="page products hide  ">
         <div className="page-inner">
 
