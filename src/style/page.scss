@@ -1,0 +1,225 @@
+.page{
+    background-color: rgb(255, 255, 255);
+    position: fixed;
+    left: 100vw;
+    width: 100%;
+    animation-name: page-slide-rollback;
+    animation-duration: 3.0s;
+    animation-fill-mode: forwards;
+    z-index: -1;
+    box-shadow: 0px 0px 16px rgba(0, 0, 0, 0.1);
+    border-radius: 8px;
+    transition-duration: 0.2s;
+    .page-inner{
+        .page-header{
+            .page-header-inner{
+                height: 8px*7;
+                display: grid;
+                grid-template-columns: 1fr 1fr 1fr;
+                align-items: center;
+                justify-items: stretch;
+                padding: 0px 8px*1;
+                .header-button{
+                    display: grid;
+                    grid-template-columns: 8px*4 auto;
+                    gap: 4px;
+                    justify-items: start;
+                    align-items: center;
+                    .icon{
+                        height:8px*4;
+                        width:8px*4;
+                        margin: 4px;
+                        background-image: url('../media/images/icons/ios-arrow-back__green.svg');
+                        background-size: auto 8px*2;
+                        background-repeat: no-repeat;
+                        background-position: center;
+                    }
+                    .label{
+                        color: #008060;
+                        font-size: 8px*2.2;
+                    }
+                }   
+                .header-title h3{
+                    font-size: 8px*2.2;
+                    font-weight: bold;
+                }
+                .option{
+                    display: grid;
+                    grid-template-columns: auto 8px*4 ;
+                    gap: 4px;
+                    justify-items: end;
+                    align-items: center;
+                    .icon{
+                        height:8px*4;
+                        width:8px*4;
+                        margin: 4px;
+                        background-image: url('../media/images/icons/ios-plus__green.svg');
+                        background-size: auto 8px*2;
+                        background-repeat: no-repeat;
+                        background-position: center;
+                    }
+                    .label{
+                        color: #008060;
+                        font-size: 8px*2.2;
+                    }
+                }  
+            }
+        }
+        .page-content{
+            height: calc(100vh - 0px);
+            background-color: rgba(0, 0, 0, 0.04);
+            overflow: scroll;
+            padding: 8px*4;
+            text-align: left;
+        }
+    }
+}
+
+.page.active{
+    left:100vw ;
+    animation-name: page-slide-active-rollback;
+    animation-fill-mode: forwards;  
+    animation-duration: 0.2s;
+    animation-delay: 0.1s;
+    animation-timing-function: ease-out;
+    z-index: 1;
+}
+.page.level-one{
+    transform: scale(0.95) ;
+    margin: 0 0px;
+    opacity: 1;
+    transition-duration: 0.4s;
+}
+
+
+
+.sheet{
+
+    background-color: rgb(255, 255, 255);
+    position: fixed;
+    top: 8px*2;
+    width: 100vw;
+
+    z-index: 2;
+    box-shadow: 0px 0px 16px rgba(0, 0, 0, 0.1);
+    border-radius: 8px;
+    transition-duration: 0.1s;;
+    top: 100vh;
+    transition-duration: 0.2s;;
+    .sheet-inner{
+        .sheet-header{
+            .sheet-header-inner{
+                height: 8px*7;
+                display: grid;
+                grid-template-columns: 2fr 4fr 2fr;
+                align-items: center;
+                justify-items: stretch;
+                .header-button{
+                    display: grid;
+                    grid-template-columns: 8px*4 auto;
+                    gap: 4px;
+                    justify-items: start;
+                    align-items: center;
+                    .icon{
+                        height:8px*4;
+                        width:8px*4;
+                        margin: 4px;
+                        background-image: url('../media/images/icons/ios-arrow-back__green.svg');
+                        background-size: 8px*1.5;
+                        background-repeat: no-repeat;
+                        background-position: center;
+                    }
+                    .label{
+                        color: #008060;
+                        font-size: 8px*2.2;
+                    }
+                }   
+                .header-title h3{
+                    font-size: 8px*2.2;
+                    font-weight: bold;
+                }
+            }
+        }
+        .sheet-content{
+            height: calc(100vh - 0px);
+            background-color: rgba(0, 0, 0, 0.04);
+            overflow: scroll;
+            padding: 8px*4;
+            text-align: left;
+        }
+    }
+    &.active{
+        top: 8px*4;
+        transition-duration: 0.3s;;
+    }
+}
+.sheet-cover-black{
+    position: fixed;
+    top: 0vh;
+    left: 0px;
+    width: 100vw;
+    height: 0vh;
+    background-color: rgba(0, 0, 0, 0.3);
+    opacity: 0;
+    transition-duration: 0.2s;;
+    &.active{
+        top: 0px;
+        height: 10vh;
+        width: 100vw;
+        transition-duration: 0.5s;;
+        transition-delay: 0s;
+        opacity: 1;
+        z-index:1;
+        animation-name: sheet-cover-black-active;
+        animation-duration: 0.5s;
+    }
+}
+@keyframes sheet-cover-black-active{
+    0%{
+        height: 100vh;
+        opacity: 0;
+    }
+    100%{
+        height: 100vh;
+        opacity: 1;
+    }
+}
+    
+
+@keyframes page-slide-active-rollback{
+    0%{
+        left: 100vw;
+    }
+    100%{
+        left: 0vw;
+    }
+    
+}
+
+@keyframes page-slide-rollback{
+    0%{
+        left: 0vw;
+        opacity: 1;
+        margin-top:     0px;
+        animation-timing-function: ease-in;
+        transform: scale(1);
+    }
+    20%{
+        left: -100vw;
+        opacity: 0.6;
+        margin-top: 8px*1;
+        background-color: rgba(0, 0, 0, 1);
+        transform: scale(1) ;
+    }
+    99%{
+        left: -100vw;
+        opacity: 0;
+        transform: scale(1) ;
+    }
+    100%{
+        left: 100vw;
+        opacity: 0;
+        transform: scale(1) ;
+    }
+    
+}
