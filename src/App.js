@@ -745,7 +745,31 @@ function App() {
               </div>
 
             </section>
-
+            <section className="products-list">
+                <div className="title">Recently updated products</div>
+                <div className="products">
+                  <div className="products-inner">
+                    {
+                  [1,2,3,4,5].map((product, index) => {
+                      return (<div className="product" >
+                        <div className="image"></div>
+                        <div className="details">
+                          <div className="name">Lorem Isps Blue Variant</div>
+                          <div className="attributes">
+                            <div className="status">Active</div>
+                            <div className="available">1 available</div>
+                          </div>
+                        </div>
+                      </div>
+                  
+                      )
+                    }
+                  )
+} 
+                  
+                  </div>
+                </div>
+                </section>
             </div>
           </div>
 
@@ -785,19 +809,28 @@ function App() {
           </div>
           <div className="page-content">
             <div className="page-content-inner">
-                
-                <div className="product">
-                  <div className="product-image"></div>
-                  <div className="product-details">
-                    <div className="product-name">Multi-color multi-sized T-shirts</div>
-                    <div className="product-attributes">
-                      <div className="available">7 available</div>
-                      <div className="variants">16 variants</div>
-                      <div className="status">Active</div>
-                    </div>
-                  </div>
-                </div>
+                <div className="products">
+                  {/* display product div n times */}
+                  {
+                    [0,1,2,3,4,5].map((product, index) => {
+                      return (
+                        <div className="product">
+                          <div className="product-image"></div>
+                          <div className="product-details">
+                            <div className="product-name">Multi-color multi-sized T-shirts</div>
+                            <div className="product-attributes">
+                              <div className="available">7 available</div>
+                              <div className="variants">16 variants</div>
+                              <div className="status">Active</div>
+                            </div>
+                          </div>
+                        </div>
             
+                      )
+                    })
+                  }
+                </div>
+                
             </div>
           </div>
 
