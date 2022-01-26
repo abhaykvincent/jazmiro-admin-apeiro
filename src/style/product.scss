@@ -1,0 +1,10 @@
+
+.allProducts{
+    .product{
+        display: grid;
+        grid-template-columns: 8px*5 auto;
+        .product-image{
+            background-color: green;
+        }
+    }
+}

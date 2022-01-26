@@ -721,24 +721,81 @@ function App() {
             <div className="page-content-inner">
             <section className="quick-menus">
 
-              <div className="quick-menu">
+              <div className="quick-menu"
+                onClick={
+                  () => {
+                    changePage('allProducts')
+                  }
+                }
+              >
                 <div className="menu-icon"></div>
-                <div className="menu-title">New Order</div>
+                <div className="menu-title">All Products</div>
                 <div className="menu-action"></div>
               </div>
               <div className="quick-menu">
                 <div className="menu-icon"></div>
-                <div className="menu-title">New Product</div>
+                <div className="menu-title">Inventory</div>
                 <div className="menu-action"></div>
               </div>
               <div className="quick-menu">
                 <div className="menu-icon"></div>
-                <div className="menu-title">New Customer</div>
+                <div className="menu-title">Collections</div>
                 <div className="menu-action"></div>
               </div>
 
             </section>
 
+            </div>
+          </div>
+
+        </div>
+      </div>
+      
+      <div className="page allProducts hide  ">
+        <div className="page-inner">
+
+          <div className="page-header">
+            <div className="page-header-inner">
+              <div className="header-button"
+                onClick={
+                  () => {
+                    changePage('home')
+                  }
+                }
+              >
+                <div className="icon"></div>
+                <div className="label"></div>
+              </div>
+              <div className="header-title">
+                <h3>All products</h3>
+              </div>
+              <div className="option"
+                onClick={
+                  () => {
+                    openSheet('addProduct')
+                  }
+                }
+              
+              >
+                <div className="label"> </div>
+                <div className="icon"></div>
+              </div>
+            </div>
+          </div>
+          <div className="page-content">
+            <div className="page-content-inner">
+            
+                <div className="product">
+                  <div className="product-image"></div>
+                  <div className="product-details">
+                    <div className="product-name">Multi-color multi-sized T-shirts</div>
+                    <div className="product-attributes">
+                      <div className="available">7 available</div>
+                      <div className="variants">16 variants</div>
+                      <div className="status">Active</div>
+                    </div>
+                  </div>
+                </div>
             </div>
           </div>
 
