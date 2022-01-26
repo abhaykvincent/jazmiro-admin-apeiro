@@ -1,0 +1,86 @@
+.order-single-display{
+    .order-single-header{
+        padding: 8px*4;
+        .order-id-name{
+            display: grid;
+            grid-template-columns: 8px*8 auto ;
+            align-items: center;
+            gap: 8px*4;
+            margin: 8px 0;;
+            .order-id{
+                font-size: 8px*2.5;
+                font-weight: bold;
+            }
+            .order-customer{
+                font-size: 8px*3;
+            }
+        }
+        .order-update-details{
+            font-size:8px*1.8;
+            color: rgba(0, 0, 0, 0.6);
+            margin: 8px 0;
+            .via{
+                color: rgba(0, 0, 0, 0.4);
+            }
+        }
+        .order-tags{
+            display: inline-flex;
+            gap: 8px;
+            margin-top: 8px*2;
+            .tag{
+                padding: 8px*0.5 8px*1.5;
+                background-color: rgba(255, 255, 255, 1);
+                border-radius: 8px;
+                &.grey{
+                    background-color: rgba(0, 0, 0, 0.1);
+                    color: rgba(0, 0, 0, 0.8);
+                }
+                &.yellow{
+                    background-color: rgba(255, 206, 43, 0.8);
+                    color: rgba(0, 0, 0, 0.6);
+                }
+            }
+        }
+    }
+    .order-single-info{
+        background-color: white;
+        border: 1px solid rgba(0, 0, 0, 0.1);
+        .order-single-info-label{
+            padding: 8px*2 8px*4;
+            padding-top: 8px*4;
+            font-size: 8px*2.5;
+            font-weight: bold;
+            color: rgba(0, 0, 0, 0.8);
+        }
+        .order-single-info-customer{
+            margin: 8px*0 8px*4;
+            .customer-name{
+                font-size: 8px*3;
+                font-weight: normal;
+            }
+            .customer-routine{
+                color: rgba(0, 0, 0, 0.5);
+            }
+        }
+        .shipping-billing-address{
+            padding: 8px*2 8px*4;
+            .label{
+                font-size: 8px*1.6;
+                font-weight: bold;
+                margin: 8px*2 0px;
+                color: rgba(0, 0, 0, 0.8);;
+            }
+        }
+        .customer-contacts{
+            .contact{
+                display: grid;
+                grid-template-columns: auto 8px*4;
+                padding: 8px*4;
+                .phone-number{
+                    font-size: 8px*2;
+                    font-weight: bold;
+                }
+            }
+        }
+    }
+}
