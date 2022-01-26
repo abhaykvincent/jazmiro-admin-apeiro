@@ -750,22 +750,22 @@ function App() {
                 <div className="products">
                   <div className="products-inner">
                     {
-                  [1,2,3,4,5].map((product, index) => {
-                      return (<div className="product" >
-                        <div className="image"></div>
-                        <div className="details">
-                          <div className="name">Lorem Isps Blue Variant</div>
-                          <div className="attributes">
-                            <div className="status">Active</div>
-                            <div className="available">1 available</div>
+                      [1,2,3,4,5].map((product, index) => {
+                          return (<div className="product" >
+                            <div className="image"></div>
+                            <div className="details">
+                              <div className="name">Lorem Isps Blue Variant</div>
+                              <div className="attributes">
+                                <div className="status">Active</div>
+                                <div className="available">1 available</div>
+                              </div>
+                            </div>
                           </div>
-                        </div>
-                      </div>
-                  
+                      
+                          )
+                        }
                       )
-                    }
-                  )
-} 
+                  } s
                   
                   </div>
                 </div>
