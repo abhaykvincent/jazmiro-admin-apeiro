@@ -7,6 +7,7 @@ import './style/home.scss';
 import './style/orders.scss';
 import './style/allOrders.scss';
 import './style/order-single.scss';
+import './style/products.scss'
 import { useState } from 'react';
 
 function App() {
