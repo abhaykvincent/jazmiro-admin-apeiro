@@ -1,0 +1,50 @@
+.allOrders{
+    font-size: 8px*2;
+
+    .order-list{
+        .date-label{
+            padding: 8px*1 8px*4;
+            color: rgba(0, 0, 0, 0.5);
+        }
+        .order{
+            display: grid;
+            background-color: rgba(255, 255, 255, 0.8);
+            padding: 8px*2 8px*4;
+            border: 1px solid rgba(0, 0, 0, 0.2);
+            border-bottom: none;
+            .meta{
+                display: flex;
+                .order-id{
+
+                }
+                .order-time{
+
+                }
+            } 
+            .body{
+                display: grid;
+                grid-template-columns: auto auto ;
+                gap: 8px*4;
+                .order-info{
+                    .order-info-customer{
+                        font-weight: bold;
+                        font-size: 8px*2.5;
+                    }
+                    .order-tags{
+
+                    }
+                }
+                .order-price{
+                    font-size: 8px*3;
+                }
+                .order-items{
+
+                }
+            }       
+            &:last-child{
+                border-bottom: 1px solid rgba(0, 0, 0, 0.2);
+            }
+        }
+    }
+
+}
