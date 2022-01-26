@@ -5,8 +5,13 @@ import './style/navigation.scss';
 
 import './style/home.scss';
 import './style/orders.scss';
+import './style/allOrders.scss';
+import { useState } from 'react';
 
 function App() {
+  //state to store list of pages
+  const [history, setHistory] = useState([]);
+  const [customerName, setCustomerName] = useState('John Doefghokff');
 
   const changePage = (page) => { 
 
@@ -29,6 +34,7 @@ function App() {
   }
   //open spesipic sheet
   const openSheet = (sheet) => {
+    setHistory([...history, sheet]);
     document.querySelector('.sheet-cover-black').classList.add('active');
 
     document.querySelector('.page.active').classList.add('level-one');
@@ -37,11 +43,13 @@ function App() {
     document.querySelector(`.sheet.${sheet}`).classList.remove('hide');
   }
   //close spesipc sheet
-  const closeSheet = (sheet) => {
+  const closeSheet = () => {
+    setHistory(history.slice(0, history.length - 1));
     document.querySelector('.sheet-cover-black').classList.remove('active');
-    document.querySelector(`.sheet.${sheet}`).classList.add('hide');
-    document.querySelector(`.sheet.${sheet}`).classList.remove('active');
-    document.querySelector('.page.active').classList.remove('level-one');
+    document.querySelector(`.sheet.${history[history.length-1] }`).classList.remove('active');
+    document.querySelector(`.page.active`).classList.remove('level-one');
+    debugger  
+
   }
 
   return (
@@ -84,6 +92,63 @@ function App() {
                   <div className="menu-action"></div>
                 </div>
 
+              </section>
+              <section className="order-list">
+                <div className="date-label">Today</div>
+                <div className="order">
+                  <div className="meta">
+                    <div className="order-id">#10001</div>.
+                    <div className="order-time">12.08 AM</div>
+                  </div>
+                  <div className="body">
+                    <div className="order-info">
+                      <div className="order-info-customer">{
+                        //convert string to charecter limit and 3 . at the end
+                        //customer name
+                        customerName.length > 30 ? customerName.substring(0, 30) + '...' : customerName
+                      }</div>
+                      <div className="order-tags"></div>
+                    <div className="order-items">1 Item</div>
+                    </div>
+                    <div className="order-price">$1230.0</div>
+                  </div>
+                </div>
+                <div className="order">
+                  <div className="meta">
+                    <div className="order-id">#10001</div>.
+                    <div className="order-time">12.08 AM</div>
+                  </div>
+                  <div className="body">
+                    <div className="order-info">
+                      <div className="order-info-customer">{
+                        //convert string to charecter limit and 3 . at the end
+                        //customer name
+                        customerName.length > 30 ? customerName.substring(0, 30) + '...' : customerName
+                      }</div>
+                      <div className="order-tags"></div>
+                    <div className="order-items">1 Item</div>
+                    </div>
+                    <div className="order-price">$1230.0</div>
+                  </div>
+                </div>
+                <div className="order">
+                  <div className="meta">
+                    <div className="order-id">#10001</div>.
+                    <div className="order-time">12.08 AM</div>
+                  </div>
+                  <div className="body">
+                    <div className="order-info">
+                      <div className="order-info-customer">{
+                        //convert string to charecter limit and 3 . at the end
+                        //customer name
+                        customerName.length > 30 ? customerName.substring(0, 30) + '...' : customerName
+                      }</div>
+                      <div className="order-tags"></div>
+                    <div className="order-items">1 Item</div>
+                    </div>
+                    <div className="order-price">$1230.0</div>
+                  </div>
+                </div>
               </section>
 
               <p className="developed-at-apeiro">Developed at Apeiro Inc.</p>
@@ -256,10 +321,15 @@ function App() {
               </div>
               <section className="quick-menus">
 
+                <div className="quick-menu">
+                  <div className="menu-icon"></div>
+                  <div className="menu-title">New order</div>
+                  <div className="menu-action"></div>
+                </div>
                 <div className="quick-menu"
                   onClick={
                     () => {
-                      openSheet('allOrders')
+                      changePage('allOrders')
                     }
                   }
                 >
@@ -284,110 +354,138 @@ function App() {
 
         </div>
       </div>
-      <div className="sheet allOrders hide">
-          <div className="sheet-inner">
+      
+      <div className="page allOrders hide  ">
+        <div className="page-inner">
 
-          <div className="sheet-header"
-            onTouchMove={
-              (e) => {
-                if (e.touches[0].clientY < 100) {
-                  closeSheet('allOrders')
+          <div className="page-header">
+            <div className="page-header-inner">
+              <div className="header-button"
+                onClick={
+                  () => {
+                    changePage('home')
+                  }
                 }
-              }
-            }
-          >
-            <div className="sheet-header-inner">
-              <div className="header-button">
+              >
+                <div className="icon"></div>
+                <div className="label">Home</div>
               </div>
               <div className="header-title">
-                <h3>All Orders</h3>
+                <h3>All</h3>
               </div>
               <div className="option">:</div>
             </div>
           </div>
-          <div className="sheet-content">
-            <div className="sheet-content-inner">
-              <p>
-                Lorem ipsum dolor sit amet, consectetur adipiscing elit.
-              </p>
-              <br/>
-              <p>
-                Lorem ipsum dolor sit amet, consectetur adipiscing elit.
-              </p>
-              <br/>
-              <p>
-                Lorem ipsum dolor sit amet, consectetur adipiscing elit.
-              </p>
-              <br/>
-              <p>
-                Lorem ipsum dolor sit amet, consectetur adipiscing elit.
-              </p>
-              <br/>
-              <p>
-                Lorem ipsum dolor sit amet, consectetur adipiscing elit.
-              </p>
-              <br/>
-              <p>
-                Lorem ipsum dolor sit amet, consectetur adipiscing elit.
-              </p>
-              <br/>
-              <p>
-                Lorem ipsum dolor sit amet, consectetur adipiscing elit.
-              </p>
-              <br/>
-              <p>
-                Lorem ipsum dolor sit amet, consectetur adipiscing elit.
-              </p>
-              <br/>
-              <p>
-                Lorem ipsum dolor sit amet, consectetur adipiscing elit.
-              </p>
-              <br/>
-              <p>
-                Lorem ipsum dolor sit amet, consectetur adipiscing elit.
-              </p>
-              <br/>
-              <p>
-                Lorem ipsum dolor sit amet, consectetur adipiscing elit.
-              </p>
-              <br/>
-              <p>
-                Lorem ipsum dolor sit amet, consectetur adipiscing elit.
-              </p>
-              <br/>
-              <p>
-                Lorem ipsum dolor sit amet, consectetur adipiscing elit.
-              </p>
-              <br/>
-              <p>
-                Lorem ipsum dolor sit amet, consectetur adipiscing elit.
-              </p>
-              <br/>
-              <p>
-                Lorem ipsum dolor sit amet, consectetur adipiscing elit.
-              </p>
-              <br/>
-              <p>
-                Lorem ipsum dolor sit amet, consectetur adipiscing elit.
-              </p>
-              <br/>
-              <p>
-                Lorem ipsum dolor sit amet, consectetur adipiscing elit.
-              </p>
-              <br/>
-              <p>
-                Lorem ipsum dolor sit amet, consectetur adipiscing elit.
-              </p>
-              <br/>
-              <p>
-                Lorem ipsum dolor sit amet, consectetur adipiscing elit.
-              </p>
-              <br/>
+          <div className="page-content">
+            <div className="page-content-inner">
+
+              <div className="search"></div>
+
+              <section className="order-list">
+                <div className="date-label">Today</div>
+                <div className="order"
+                  onClick={
+                    () => {
+                      changePage('order-single')
+                    }
+                  }
+                >
+                  <div className="meta">
+                    <div className="order-id">#10001</div>.
+                    <div className="order-time">12.08 AM</div>
+                  </div>
+                  <div className="body">
+                    <div className="order-info">
+                      <div className="order-info-customer">{
+                        //convert string to charecter limit and 3 . at the end
+                        //customer name
+                        customerName.length > 30 ? customerName.substring(0, 30) + '...' : customerName
+                      }</div>
+                      <div className="order-tags"></div>
+                    <div className="order-items">1 Item</div>
+                    </div>
+                    <div className="order-price">$1230.0</div>
+                  </div>
+                </div>
+                <div className="order">
+                  <div className="meta">
+                    <div className="order-id">#10001</div>.
+                    <div className="order-time">12.08 AM</div>
+                  </div>
+                  <div className="body">
+                    <div className="order-info">
+                      <div className="order-info-customer">{
+                        //convert string to charecter limit and 3 . at the end
+                        //customer name
+                        customerName.length > 30 ? customerName.substring(0, 30) + '...' : customerName
+                      }</div>
+                      <div className="order-tags"></div>
+                    <div className="order-items">1 Item</div>
+                    </div>
+                    <div className="order-price">$1230.0</div>
+                  </div>
+                </div>
+                <div className="order">
+                  <div className="meta">
+                    <div className="order-id">#10001</div>.
+                    <div className="order-time">12.08 AM</div>
+                  </div>
+                  <div className="body">
+                    <div className="order-info">
+                      <div className="order-info-customer">{
+                        //convert string to charecter limit and 3 . at the end
+                        //customer name
+                        customerName.length > 30 ? customerName.substring(0, 30) + '...' : customerName
+                      }</div>
+                      <div className="order-tags"></div>
+                    <div className="order-items">1 Item</div>
+                    </div>
+                    <div className="order-price">$1230.0</div>
+                  </div>
+                </div>
+              </section>
+
             </div>
           </div>
 
-              </div>
         </div>
+      </div>
+      
+      <div className="page order-single hide  ">
+        <div className="page-inner">
+
+          <div className="page-header">
+            <div className="page-header-inner">
+              <div className="header-button"
+                onClick={
+                  () => {
+                    changePage('home')
+                  }
+                }
+              >
+                <div className="icon"></div>
+                <div className="label">Home</div>
+              </div>
+              <div className="header-title">
+                <h3>All</h3>
+              </div>
+              <div className="option">:</div>
+            </div>
+          </div>
+          <div className="page-content">
+            <div className="page-content-inner">
+
+              <div className="search"></div>
+
+              <section className="order-list">
+                <h1>Order for John Doe</h1>
+                </section>
+
+            </div>
+          </div>
+
+        </div>
+      </div>
       
       
       <div className="page products hide  ">
@@ -612,7 +710,7 @@ function App() {
       <div className="sheet-cover-black"
         onClick={
           () => {
-            closeSheet('addProduct')
+            closeSheet(history[history.length - 1])
           }
         }
         //react on drag down

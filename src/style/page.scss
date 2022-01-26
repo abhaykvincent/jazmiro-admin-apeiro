@@ -71,6 +71,8 @@
             overflow: scroll;
             padding: 0;
             text-align: left;
+
+    padding-bottom: 8px*20;
         }
     }
 }
@@ -144,7 +146,7 @@
             height: calc(100vh - 0px);
             background-color: rgba(0, 0, 0, 0.04);
             overflow: scroll;
-            padding: 8px*4;
+            padding: 0;
             text-align: left;
         }
     }
