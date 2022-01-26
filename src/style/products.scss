@@ -1,0 +1,22 @@
+
+.allProducts{
+    .product{
+        display: grid;
+        grid-template-columns: 8px*5 auto;
+        padding: 8px*2;
+        gap:8px*2;
+        .product-image{
+            background-color: green;
+            padding-top: 150%;;
+        }
+        .product-details{
+            .product-name{
+                font-weight: bold;
+            }
+            .product-attributes{
+                display: flex;
+                gap: 8px*0.5;
+            }
+        }
+    }
+}
