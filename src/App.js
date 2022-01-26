@@ -13,6 +13,7 @@ function App() {
   //state to store list of pages
   const [history, setHistory] = useState([]);
   const [customerName, setCustomerName] = useState('John Doefghokff');
+  const [orders, setOrders] = useState([1,2,3,4,5,6]);
 
   const changePage = (page) => { 
 
@@ -95,8 +96,13 @@ function App() {
 
               </section>
               <section className="order-list">
-                <div className="date-label">Today</div>
-                <div className="order">
+                <div className="date-label title">Orders to fulfill</div>
+                <div className="order" 
+                onClick={
+                  () => {
+                    changePage('order-single');
+                  }
+                }>
                   <div className="meta">
                     <div className="order-id">#10001</div>.
                     <div className="order-time">12.08 AM</div>
@@ -114,7 +120,35 @@ function App() {
                     <div className="order-price">$1230.0</div>
                   </div>
                 </div>
-                <div className="order">
+                <div className="order" 
+                onClick={
+                  () => {
+                    changePage('order-single');
+                  }
+                }>
+                  <div className="meta">
+                    <div className="order-id">#10001</div>
+                    <div className="order-time">12.08 AM</div>
+                  </div>
+                  <div className="body">
+                    <div className="order-info">
+                      <div className="order-info-customer">{
+                        //convert string to charecter limit and 3 . at the end
+                        //customer name
+                        customerName.length > 30 ? customerName.substring(0, 30) + '...' : customerName
+                      }</div>
+                      <div className="order-tags"></div>
+                    <div className="order-items">1 Item</div>
+                    </div>
+                    <div className="order-price">$1230.0</div>
+                  </div>
+                </div>
+                <div className="order" 
+                onClick={
+                  () => {
+                    changePage('order-single');
+                  }
+                }>
                   <div className="meta">
                     <div className="order-id">#10001</div>.
                     <div className="order-time">12.08 AM</div>
@@ -132,25 +166,7 @@ function App() {
                     <div className="order-price">$1230.0</div>
                   </div>
                 </div>
-                <div className="order">
-                  <div className="meta">
-                    <div className="order-id">#10001</div>.
-                    <div className="order-time">12.08 AM</div>
-                  </div>
-                  <div className="body">
-                    <div className="order-info">
-                      <div className="order-info-customer">{
-                        //convert string to charecter limit and 3 . at the end
-                        //customer name
-                        customerName.length > 30 ? customerName.substring(0, 30) + '...' : customerName
-                      }</div>
-                      <div className="order-tags"></div>
-                    <div className="order-items">1 Item</div>
-                    </div>
-                    <div className="order-price">$1230.0</div>
-                  </div>
-                </div>
-              </section>
+            </section>
 
               <p className="developed-at-apeiro">Developed at Apeiro Inc.</p>
             </div>
@@ -349,7 +365,78 @@ function App() {
                   <div className="menu-action"></div>
                 </div>
               </section>
-
+              <section className="order-list">
+                <div className="date-label title">Orders to fulfill</div>
+                <div className="order" 
+                onClick={
+                  () => {
+                    changePage('order-single');
+                  }
+                }>
+                  <div className="meta">
+                    <div className="order-id">#10001</div>.
+                    <div className="order-time">12.08 AM</div>
+                  </div>
+                  <div className="body">
+                    <div className="order-info">
+                      <div className="order-info-customer">{
+                        //convert string to charecter limit and 3 . at the end
+                        //customer name
+                        customerName.length > 30 ? customerName.substring(0, 30) + '...' : customerName
+                      }</div>
+                      <div className="order-tags"></div>
+                    <div className="order-items">1 Item</div>
+                    </div>
+                    <div className="order-price">$1230.0</div>
+                  </div>
+                </div>
+                <div className="order" 
+                onClick={
+                  () => {
+                    changePage('order-single');
+                  }
+                }>
+                  <div className="meta">
+                    <div className="order-id">#10001</div>
+                    <div className="order-time">12.08 AM</div>
+                  </div>
+                  <div className="body">
+                    <div className="order-info">
+                      <div className="order-info-customer">{
+                        //convert string to charecter limit and 3 . at the end
+                        //customer name
+                        customerName.length > 30 ? customerName.substring(0, 30) + '...' : customerName
+                      }</div>
+                      <div className="order-tags"></div>
+                    <div className="order-items">1 Item</div>
+                    </div>
+                    <div className="order-price">$1230.0</div>
+                  </div>
+                </div>
+                <div className="order" 
+                onClick={
+                  () => {
+                    changePage('order-single');
+                  }
+                }>
+                  <div className="meta">
+                    <div className="order-id">#10001</div>.
+                    <div className="order-time">12.08 AM</div>
+                  </div>
+                  <div className="body">
+                    <div className="order-info">
+                      <div className="order-info-customer">{
+                        //convert string to charecter limit and 3 . at the end
+                        //customer name
+                        customerName.length > 30 ? customerName.substring(0, 30) + '...' : customerName
+                      }</div>
+                      <div className="order-tags"></div>
+                    <div className="order-items">1 Item</div>
+                    </div>
+                    <div className="order-price">$1230.0</div>
+                  </div>
+                </div>
+            </section>
             </div>
           </div>
 
@@ -533,7 +620,7 @@ function App() {
                       </div>
                   </div>
 
-                  <div className="order-tag-panel">
+                  <div className="order-tag-panel unfulfilled">
                     <div className="tag-panel-head">
                       <div className="tag-panel-head-icon"></div>
                       <div className="tag-panel-head-title">Unfulfilled</div>
@@ -554,6 +641,41 @@ function App() {
                       </div>
                   </div>
                 </div>
+                  <div className="order-tag-panel paid">
+                    <div className="tag-panel-head">
+                      <div className="tag-panel-head-icon"></div>
+                      <div className="tag-panel-head-title">Paid</div>
+                    </div>
+                    <div className="tag-panel-body">
+
+                      <div className="subtotal payment-section">
+                        <div className="label">Subtotal</div>
+                        <div className="section-details">
+                          <div className="items">1 Item</div>
+                          <div className="price">$200.00</div>
+                        </div>
+                      </div>
+                      <div className="shiopping payment-section">
+                        <div className="label">Shipping</div>
+                        <div className="section-details">
+                          <div className="items">Free Shipping</div>
+                          <div className="price">$0.00</div>
+                        </div>
+                      </div>
+                      <div className="total payment-section">
+                        <div className="label">Total</div>
+                        <div className="price">
+                          $200.00
+                        </div>
+                      </div>
+
+                      <div className="actions">
+                        <div className="action button primary">Collect Payements</div>
+                        <div className="action button secondary">Send Invoice</div>
+                      </div>
+                  </div>
+                </div>
+                
                 </div>
               </section>
 
