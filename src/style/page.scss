@@ -176,6 +176,23 @@
         animation-duration: 0.5s;
     }
 }
+
+.button{
+    padding: 8px*2;
+    margin: 8px*2;
+    border-radius: 4px;
+    text-align: center;
+    &.primary{
+        background-color: #008060;
+        color: white;
+        border-bottom: #005f47;
+    }
+    &.secondary{
+        background-color: white;
+        color: #008060;
+        border-bottom: #005f47;
+    }
+}
 @keyframes sheet-cover-black-active{
     0%{
         height: 100vh;

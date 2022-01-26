@@ -46,11 +46,12 @@
         background-color: white;
         border: 1px solid rgba(0, 0, 0, 0.1);
         .order-single-info-label{
-            padding: 8px*2 8px*4;
+            padding: 8px*1 8px*4;
             padding-top: 8px*4;
-            font-size: 8px*2.5;
+            font-size: 8px*1.6;
             font-weight: bold;
-            color: rgba(0, 0, 0, 0.8);
+            margin: 8px*2 0px;
+            color: rgba(0, 0, 0, 0.8);;
         }
         .order-single-info-customer{
             margin: 8px*0 8px*4;
@@ -75,10 +76,23 @@
             .contact{
                 display: grid;
                 grid-template-columns: auto 8px*4;
-                padding: 8px*4;
-                .phone-number{
+                padding: 8px*2 8px*4;
+                align-items: center;
+                .contact-id{
                     font-size: 8px*2;
-                    font-weight: bold;
+                    font-weight: normal;
+                }
+                &.number{
+                    .action{
+                        padding: 8px*2;
+                        background-image: url('../media/images/icons/Icon\ ionic-ios-call.svg');
+                    }
+                }
+                &.email{
+                    .action{
+                        padding: 8px*2;
+                        background-image: url('../media/images/icons/Icon\ ionic-ios-mail.svg');
+                    }
                 }
             }
         }

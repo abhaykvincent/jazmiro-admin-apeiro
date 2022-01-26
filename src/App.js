@@ -498,7 +498,7 @@ function App() {
 
                   <div className="order-single-info">
                     <div className="order-single-info-label">
-                      Customer
+                      <p>CUSTOMER</p>
                     </div>
                     <div className="order-single-info-customer">
                       <div className="customer-name">John Doe</div>
@@ -522,13 +522,13 @@ function App() {
                       </div>
                     </div>
                       <div className="customer-contacts">
-                        <div className="contact">
-                          <div className="phone-number">+1 365 688 2276</div>
-                          <div className="phone-action">P</div>
+                        <div className="contact number">
+                          <div className="contact-id">+1 365 688 2276</div>
+                          <div className="action"></div>
                         </div>
-                        <div className="contact">
-                          <div className="phone-number">john.doe@gmail.com</div>
-                          <div className="phone-action">M</div>
+                        <div className="contact email">
+                          <div className="contact-id">john.doe@gmail.com</div>
+                          <div className="action"></div>
                         </div>
                       </div>
                   </div>
@@ -549,8 +549,8 @@ function App() {
                         </div>
                       </div>
                       <div className="actions">
-                        <div className="action button">Fulfill Order</div>
-                        <div className="action button">Send Invoice</div>
+                        <div className="action button primary">Fulfill Order</div>
+                        <div className="action button secondary">Send Invoice</div>
                       </div>
                   </div>
                 </div>
