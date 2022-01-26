@@ -1,0 +1,53 @@
+.orders{
+    .order-sales{
+        display: grid;
+        gap:8px;
+        background-color:#1F1F25;
+        color: white;;
+        padding: 8px*2;
+        .options{
+            display:flex;
+            gap: 8px;
+            .option{
+                padding: 8px 8px*2;
+                background-color:rgba(255, 255, 255, 0.1);
+                border-radius: 8px;
+            }
+        }
+        .quick-views{
+            padding: 8px*2;
+            padding-bottom: 8px;
+            display: grid;
+            gap: 8px*4;
+            grid-template-columns: 1fr 1fr ;
+            .body{
+                display: flex;
+                align-items: center;
+                gap: 8px;
+                .count{
+                    font-size: 8px*3;
+                }
+                .change{
+                    color: #039C86;
+                }
+            }
+            .quick-view{
+                display: grid;
+                gap: 8px*1;
+            }
+            .orders-quick-view{
+                position: relative;
+                &::after{
+                    position: absolute;
+                    top: 0;
+                    right: -8px*2;
+                    content: '';
+                    display: block;
+                    height: 100%;
+                    width: 1px;
+                    background-color: rgba(255, 255, 255, 0.1);
+                }
+            }
+        }
+    }
+}
