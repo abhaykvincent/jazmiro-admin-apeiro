@@ -535,7 +535,7 @@ function App() {
 
                   <div className="order-tag-panel">
                     <div className="tag-panel-head">
-                      <div className="tag-panel-head-icon">O</div>
+                      <div className="tag-panel-head-icon"></div>
                       <div className="tag-panel-head-title">Unfulfilled</div>
                     </div>
                     <div className="tag-panel-body">

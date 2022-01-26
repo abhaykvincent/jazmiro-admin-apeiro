@@ -97,4 +97,37 @@
             }
         }
     }
+    .order-tag-panel{
+        background-color: white;
+        border: 1px solid rgba(0, 0, 0, 0.1);
+        margin: 8px*2 0px;
+        padding: 8px*2 8px*4;
+        .tag-panel-head{
+            display: grid;
+            grid-template-columns: 8px*5 auto;
+            align-items: center;
+            margin-bottom: 8px*2;
+            .tag-panel-head-icon{
+                height: 8px*4;
+                width: 8px*4;
+                background-image: url('../media/images/icons/unfulfilled-icon.svg');
+                background-position: left;
+                background-size: 100%;
+            }
+        }
+        .tag-panel-body{
+            .order-items{
+                .order-item{
+                    display: grid;
+                    grid-template-columns: 8px*7 auto;
+                    gap: 8px*2;
+                    .image{
+                        height: 8px*12;
+                        background-size: 100% auto;
+                        background-image: url('https://stylesatlife.com/wp-content/uploads/2019/01/Plain-Black-Long-Kurti.jpg.webp');
+                    }
+                }
+            }
+        }
+    }
 }

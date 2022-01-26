@@ -179,7 +179,7 @@
 
 .button{
     padding: 8px*2;
-    margin: 8px*2;
+    margin: 8px*2 0;
     border-radius: 4px;
     text-align: center;
     &.primary{
@@ -190,7 +190,8 @@
     &.secondary{
         background-color: white;
         color: #008060;
-        border-bottom: #005f47;
+        border: 1px solid#008060a9;
+        border-bottom: 1px solid #005f479a;
     }
 }
 @keyframes sheet-cover-black-active{
