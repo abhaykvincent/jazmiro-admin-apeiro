@@ -174,110 +174,6 @@ function App() {
           </div>
         </div>
       </div>
-      <div className="sheet addProduct hide">
-          <div className="sheet-inner">
-
-          <div className="sheet-header"
-            onTouchMove={
-              (e) => {
-                if (e.touches[0].clientY < 100) {
-                  closeSheet('addProduct')
-                }
-              }
-            }
-          >
-            <div className="sheet-header-inner">
-              <div className="header-button">
-              </div>
-              <div className="header-title">
-                <h3>Add product</h3>
-              </div>
-              <div className="option">:</div>
-            </div>
-          </div>
-          <div className="sheet-content">
-            <div className="sheet-content-inner">
-              <p>
-                Lorem ipsum dolor sit amet, consectetur adipiscing elit.
-              </p>
-              <br/>
-              <p>
-                Lorem ipsum dolor sit amet, consectetur adipiscing elit.
-              </p>
-              <br/>
-              <p>
-                Lorem ipsum dolor sit amet, consectetur adipiscing elit.
-              </p>
-              <br/>
-              <p>
-                Lorem ipsum dolor sit amet, consectetur adipiscing elit.
-              </p>
-              <br/>
-              <p>
-                Lorem ipsum dolor sit amet, consectetur adipiscing elit.
-              </p>
-              <br/>
-              <p>
-                Lorem ipsum dolor sit amet, consectetur adipiscing elit.
-              </p>
-              <br/>
-              <p>
-                Lorem ipsum dolor sit amet, consectetur adipiscing elit.
-              </p>
-              <br/>
-              <p>
-                Lorem ipsum dolor sit amet, consectetur adipiscing elit.
-              </p>
-              <br/>
-              <p>
-                Lorem ipsum dolor sit amet, consectetur adipiscing elit.
-              </p>
-              <br/>
-              <p>
-                Lorem ipsum dolor sit amet, consectetur adipiscing elit.
-              </p>
-              <br/>
-              <p>
-                Lorem ipsum dolor sit amet, consectetur adipiscing elit.
-              </p>
-              <br/>
-              <p>
-                Lorem ipsum dolor sit amet, consectetur adipiscing elit.
-              </p>
-              <br/>
-              <p>
-                Lorem ipsum dolor sit amet, consectetur adipiscing elit.
-              </p>
-              <br/>
-              <p>
-                Lorem ipsum dolor sit amet, consectetur adipiscing elit.
-              </p>
-              <br/>
-              <p>
-                Lorem ipsum dolor sit amet, consectetur adipiscing elit.
-              </p>
-              <br/>
-              <p>
-                Lorem ipsum dolor sit amet, consectetur adipiscing elit.
-              </p>
-              <br/>
-              <p>
-                Lorem ipsum dolor sit amet, consectetur adipiscing elit.
-              </p>
-              <br/>
-              <p>
-                Lorem ipsum dolor sit amet, consectetur adipiscing elit.
-              </p>
-              <br/>
-              <p>
-                Lorem ipsum dolor sit amet, consectetur adipiscing elit.
-              </p>
-              <br/>
-            </div>
-          </div>
-
-              </div>
-        </div>
       
       <div className="page orders hide  ">
         <div className="page-inner">
@@ -836,6 +732,32 @@ function App() {
 
         </div>
       </div>
+      <div className="sheet addProduct hide">
+          <div className="sheet-inner">
+
+          <div className="sheet-header"
+            onTouchMove={
+              (e) => {
+                if (e.touches[0].clientY < 100) {
+                  closeSheet('addProduct')
+                }
+              }
+            }
+          >
+            <div className="sheet-header-inner">
+              <div className="header-button">
+              </div>
+              <div className="header-title">
+                <h3>Add product</h3>
+              </div>
+              <div className="option">:</div>
+            </div>
+          </div>
+          <div className="sheet-content">
+            <div className="sheet-content-inner"></div>
+
+              </div>
+        </div>
       
       <div className="page store hide  ">
         <div className="page-inner">
