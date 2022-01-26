@@ -785,7 +785,7 @@ function App() {
           </div>
           <div className="page-content">
             <div className="page-content-inner">
-            
+                
                 <div className="product">
                   <div className="product-image"></div>
                   <div className="product-details">
@@ -797,6 +797,7 @@ function App() {
                     </div>
                   </div>
                 </div>
+            
             </div>
           </div>
 
