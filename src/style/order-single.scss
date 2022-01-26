@@ -102,6 +102,16 @@
         border: 1px solid rgba(0, 0, 0, 0.1);
         margin: 8px*2 0px;
         padding: 8px*2 8px*4;
+        &.paid{
+            .tag-panel-head-icon{
+                background-image: url('../media/images/icons/paid-icon.svg');
+            }
+        }
+        &.unfulfilled{
+            .tag-panel-head-icon{
+                background-image: url('../media/images/icons/unfulfilled-icon.svg');
+            }
+        }
         .tag-panel-head{
             display: grid;
             grid-template-columns: 8px*5 auto;
@@ -110,7 +120,6 @@
             .tag-panel-head-icon{
                 height: 8px*4;
                 width: 8px*4;
-                background-image: url('../media/images/icons/unfulfilled-icon.svg');
                 background-position: left;
                 background-size: 100%;
             }
@@ -128,6 +137,32 @@
                     }
                 }
             }
+        }
+    }
+}
+
+.payment-section{
+    display: grid;
+    margin-bottom: 8px*2;
+    gap: 8px;
+    .section-details{
+        display: grid;
+        grid-template-columns: auto auto;
+        font-weight: normal;
+        .price{
+            text-align: right;
+        }
+        .items{
+            color: rgba(0, 0, 0, 0.6);;
+        }
+    
+    }
+    &.total{
+        display: grid;
+        grid-template-columns: auto auto;
+        font-weight: bold;
+        .price{
+            text-align: right;
         }
     }
 }
