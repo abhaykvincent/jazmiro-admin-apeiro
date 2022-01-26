@@ -7,6 +7,7 @@ import './style/home.scss';
 import './style/orders.scss';
 import './style/allOrders.scss';
 import './style/order-single.scss';
+import './style/products.scss'
 import { useState } from 'react';
 
 function App() {
@@ -685,7 +686,7 @@ function App() {
         </div>
       </div>
       
-      
+      {/* Product - PAGE*/}
       <div className="page products hide  ">
         <div className="page-inner">
 
@@ -719,87 +720,123 @@ function App() {
           </div>
           <div className="page-content">
             <div className="page-content-inner">
-              <p>
-                Lorem ipsum dolor sit amet, consectetur adipiscing elit.
-              </p>
-              <br/>
-              <p>
-                Lorem ipsum dolor sit amet, consectetur adipiscing elit.
-              </p>
-              <br/>
-              <p>
-                Lorem ipsum dolor sit amet, consectetur adipiscing elit.
-              </p>
-              <br/>
-              <p>
-                Lorem ipsum dolor sit amet, consectetur adipiscing elit.
-              </p>
-              <br/>
-              <p>
-                Lorem ipsum dolor sit amet, consectetur adipiscing elit.
-              </p>
-              <br/>
-              <p>
-                Lorem ipsum dolor sit amet, consectetur adipiscing elit.
-              </p>
-              <br/>
-              <p>
-                Lorem ipsum dolor sit amet, consectetur adipiscing elit.
-              </p>
-              <br/>
-              <p>
-                Lorem ipsum dolor sit amet, consectetur adipiscing elit.
-              </p>
-              <br/>
-              <p>
-                Lorem ipsum dolor sit amet, consectetur adipiscing elit.
-              </p>
-              <br/>
-              <p>
-                Lorem ipsum dolor sit amet, consectetur adipiscing elit.
-              </p>
-              <br/>
-              <p>
-                Lorem ipsum dolor sit amet, consectetur adipiscing elit.
-              </p>
-              <br/>
-              <p>
-                Lorem ipsum dolor sit amet, consectetur adipiscing elit.
-              </p>
-              <br/>
-              <p>
-                Lorem ipsum dolor sit amet, consectetur adipiscing elit.
-              </p>
-              <br/>
-              <p>
-                Lorem ipsum dolor sit amet, consectetur adipiscing elit.
-              </p>
-              <br/>
-              <p>
-                Lorem ipsum dolor sit amet, consectetur adipiscing elit.
-              </p>
-              <br/>
-              <p>
-                Lorem ipsum dolor sit amet, consectetur adipiscing elit.
-              </p>
-              <br/>
-              <p>
-                Lorem ipsum dolor sit amet, consectetur adipiscing elit.
-              </p>
-              <br/>
-              <p>
-                Lorem ipsum dolor sit amet, consectetur adipiscing elit.
-              </p>
-              <br/>
-              <p>
-                Lorem ipsum dolor sit amet, consectetur adipiscing elit.
-              </p>
-              <br/>
+            <section className="quick-menus">
+
+              <div className="quick-menu"
+                onClick={
+                  () => {
+                    changePage('allProducts')
+                  }
+                }
+              >
+                <div className="menu-icon"></div>
+                <div className="menu-title">All Products</div>
+                <div className="menu-action"></div>
+              </div>
+              <div className="quick-menu">
+                <div className="menu-icon"></div>
+                <div className="menu-title">Inventory</div>
+                <div className="menu-action"></div>
+              </div>
+              <div className="quick-menu">
+                <div className="menu-icon"></div>
+                <div className="menu-title">Collections</div>
+                <div className="menu-action"></div>
+              </div>
+
+            </section>
+            <section className="products-list">
+                <div className="title">Recently updated products</div>
+                <div className="products">
+                  <div className="products-inner">
+                    {
+                  [1,2,3,4,5].map((product, index) => {
+                      return (<div className="product" >
+                        <div className="image"></div>
+                        <div className="details">
+                          <div className="name">Lorem Isps Blue Variant</div>
+                          <div className="attributes">
+                            <div className="status">Active</div>
+                            <div className="available">1 available</div>
+                          </div>
+                        </div>
+                      </div>
+                  
+                      )
+                    }
+                  )
+} 
+                  
+                  </div>
+                </div>
+                </section>
             </div>
           </div>
 
         </div>
       </div>
+      
+      <div className="page allProducts hide  ">
+        <div className="page-inner">
+
+          <div className="page-header">
+            <div className="page-header-inner">
+              <div className="header-button"
+                onClick={
+                  () => {
+                    changePage('home')
+                  }
+                }
+              >
+                <div className="icon"></div>
+                <div className="label"></div>
+              </div>
+              <div className="header-title">
+                <h3>All products</h3>
+              </div>
+              <div className="option"
+                onClick={
+                  () => {
+                    openSheet('addProduct')
+                  }
+                }
+              
+              >
+                <div className="label"> </div>
+                <div className="icon"></div>
+              </div>
+            </div>
+          </div>
+          <div className="page-content">
+            <div className="page-content-inner">
+                <div className="products">
+                  {/* display product div n times */}
+                  {
+                    [0,1,2,3,4,5].map((product, index) => {
+                      return (
+                        <div className="product">
+                          <div className="product-image"></div>
+                          <div className="product-details">
+                            <div className="product-name">Multi-color multi-sized T-shirts</div>
+                            <div className="product-attributes">
+                              <div className="available">7 available</div>
+                              <div className="variants">16 variants</div>
+                              <div className="status">Active</div>
+                            </div>
+                          </div>
+                        </div>
+            
+                      )
+                    })
+                  }
+                </div>
+                
+            </div>
+          </div>
+
+        </div>
+      </div>
+      
       <div className="page store hide  ">
         <div className="page-inner">
 
