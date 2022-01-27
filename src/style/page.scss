@@ -89,7 +89,7 @@
 .page.level-one{
     transform: scale(0.95) ;
     margin: 0 0px;
-    opacity: 1;
+    opacity: 0.7;
     transition-duration: 0.4s;
 }
 
@@ -109,6 +109,7 @@
     top: 100vh;
     transition-duration: 0.2s;;
     .sheet-inner{
+        height: 100%;
         .sheet-header{
             .sheet-header-inner{
                 height: 8px*7;
@@ -144,36 +145,75 @@
         }
         .sheet-content{
             height: calc(100vh - 0px);
+            width: 100vw;
             background-color: rgba(0, 0, 0, 0.04);
-            overflow: scroll;
+            overflow-y: scroll;
             padding: 0;
             text-align: left;
+            // scroll bar hide 
+            &::-webkit-scrollbar {
+                display: none;
+            }
+            .sheet-content-inner{
+                padding-bottom: 8px*20;
+            }
         }
     }
     &.active{
         top: 8px*4;
         transition-duration: 0.3s;;
+        z-index: 5 ;
+        &.mini {
+            top: 40vh;
+            height: calc(100vh - 40vh);
+            transition-delay: 0.25s;
+            
+        transition-duration: 0.4s;;
+            transition-timing-function:cubic-bezier(.33,1.08,.66,1.04);
+            .sheet-content{
+                height: calc(100%;
+            }
+          }
     }
 }
+
+.sheet.level-one{
+    transform: scale(0.98) ;
+    margin: -8px*1 0px;
+    opacity: 1;
+    z-index: 3;
+    transition-duration: 0.4s;
+    transition-delay: 0.4s;
+}
+.page.level-two{
+    transform: scale(0.9) ;
+    margin: -8px*1 0px;
+    opacity: 0.8;
+    transition-duration: 0.4s;
+}
+
 .sheet-cover-black{
     position: fixed;
     top: 0vh;
     left: 0px;
     width: 100vw;
     height: 0vh;
-    background-color: rgba(0, 0, 0, 0.3);
+    background-color: rgba(0, 0, 0, 0.2);
     opacity: 0;
     transition-duration: 0.2s;;
     &.active{
         top: 0px;
-        height: 10vh;
+        height: 100vh;
         width: 100vw;
         transition-duration: 0.5s;;
         transition-delay: 0s;
         opacity: 1;
         z-index:1;
         animation-name: sheet-cover-black-active;
-        animation-duration: 0.5s;
+        animation-duration: 0.4s;
+        &.level-up{
+            z-index: 4;
+        }
     }
 }
 

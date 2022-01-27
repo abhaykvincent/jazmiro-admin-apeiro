@@ -38,8 +38,17 @@ function App() {
   }
   //open spesipic sheet
   const openSheet = (sheet) => {
+    let sheetTEMP = [...history, sheet];
     setHistory([...history, sheet]);
+    
+    if(sheetTEMP.length > 1){
+      document.querySelector(`.sheet.${history[0]}`).classList.add('level-one');
+      document.querySelector(`.page.active`).classList.add('level-two');
+      document.querySelector(`.page.level-one`).classList.remove('level-two');
+    }
     document.querySelector('.sheet-cover-black').classList.add('active');
+    document.querySelector('.sheet-cover-black').classList.add('level-up');
+
 
     document.querySelector('.page.active').classList.add('level-one');
 
@@ -48,6 +57,14 @@ function App() {
   }
   //close spesipc sheet
   const closeSheet = () => {
+    console.log(history[0])
+    debugger
+    if(history.length > 1){
+    document.querySelector(`.sheet.${history[0]}`).classList.remove('level-one');
+  } 
+  else{
+
+  }
     console.log(history.slice(0, history.length - 1));
     setHistory(history.slice(0, history.length - 1));
     document.querySelector(`.sheet.${history[history.length-1] }`).classList.remove('active');
@@ -750,7 +767,7 @@ function App() {
             onTouchMove={
               (e) => {
                 if (e.touches[0].clientY < 100) {
-                  closeSheet('addProduct')
+                  closeSheet()
                 }
               }
             }
@@ -845,7 +862,7 @@ function App() {
               </div>
         </div>
       
-      <div className="sheet addOption hide">
+      <div className="sheet mini addOption  hide">
           <div className="sheet-inner">
 
           {/* Sheet Header 
@@ -854,8 +871,9 @@ function App() {
           <div className="sheet-header"
             onTouchMove={
               (e) => {
-                if (e.touches[0].clientY < 100) {
-                  closeSheet('addOption')
+                
+                if (e.touches[0].clientY < 400) {
+                  closeSheet()
                 }
               }
             }
@@ -1002,7 +1020,7 @@ function App() {
       <div className="sheet-cover-black"
         onClick={
           () => {
-            closeSheet(history[history.length - 1])
+            closeSheet()
           }
         }
         //react on drag down
@@ -1011,7 +1029,7 @@ function App() {
             if (e.touches[0].clientY < 100) {
               console.log(history[history.length - 1])
               debugger
-              closeSheet(history[history.length - 1])
+              closeSheet()
             }
           }
         }
