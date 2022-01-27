@@ -1,0 +1,127 @@
+.editable-content{
+    border:none;
+    background:none;
+    padding: 8px;
+    &:focus {
+        outline: 1px solid #00806071;
+        border-radius: 4px;
+    }
+}
+.product-name-description{
+    padding: 8px;
+}
+.section-inner{
+    display: grid;
+    width: 100vw;
+    grid-template-columns: 8px*5 auto;
+    margin-top: 8px*1;
+    align-items: center;
+    .icon{
+        width: 8px*5;
+        height: 8px*5;
+        background-image: url('../media/images/icons/Icon\ awesome-tag.svg');
+        border-radius: 50%;
+        margin-right: 8px;
+    }
+
+    .inputs{
+        .input{
+            width: 100%;
+            &.product-name{
+                input{
+                    font-size: 8px*3;
+                    font-weight: bold;
+                    width: calc(100% - 8px*5);
+                }
+            }
+            &.product-description{
+                input{
+                    font-size: 8px*2;
+                    width: calc(100% - 8px*5);
+
+                }
+            }
+        }
+    }
+}
+
+.addProduct{
+    .sheet-content{
+        background-color: rgba(255, 255, 255, 1) !important;
+    }
+}
+
+.option-section{
+    margin-top: 8px*2;
+    .option-head{
+        display: grid;
+        grid-template-columns:auto 8px*5 ;
+        padding: 8px 8px*2;
+        .option-title{
+            font-weight: bold;
+        }
+        .more{
+            color: #008060;
+        }
+    }
+    .option-body{
+        background-color: rgba(143, 115, 115, 0.1);
+        padding: 8px*2;
+        border-radius: 8px;
+
+        display: grid;
+        align-content: center;
+        grid-template-columns:auto 8px*14 ;
+        box-sizing: content-box;
+        .counter{
+            .counter-inner{
+                display: grid;
+                grid-template-columns: 8px*3 8px*6 8px*3;
+                align-items: center;
+                gap: 8px;
+                .counter-button {
+                    .icon{
+                        width: 100%;
+                        height: 8px*4;
+                    }
+                    &.add{
+                        .icon{
+                            background-position: center;
+                        background-image: url('../../src/media/images/icons/ios-plus__green.svg')
+                        }
+                    }
+                    &.minus{
+                        .icon{
+                            background-position: center;
+                        background-image: url('../../src/media/images/icons/ios-minus__green.svg')
+                        }
+                    }
+                }
+                input{
+                    width: 100%;
+                    padding: 4px 8px;
+                    text-align: center;
+                    background-color: rgba(255, 255, 255, 1);
+                    border: none;
+                    border-radius:8px*2;
+                    font-size: 8px*2;
+                
+                    &:focus{
+                        outline: none;
+                    }
+                    &::placeholder{
+                        color: rgba(0, 0, 0, 0.5);
+                    }
+                }
+            }
+
+        }
+    }
+}
+.option-section.variations{
+    .option-body{
+        text-align: center;
+        display: grid;
+        grid-template-columns: 1fr;
+    }
+}
