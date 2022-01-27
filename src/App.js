@@ -7,6 +7,8 @@ import './style/home.scss';
 import './style/orders.scss';
 import './style/allOrders.scss';
 import './style/order-single.scss';
+import './style/products.scss'
+import './style/add-product.scss'
 import { useState } from 'react';
 
 function App() {
@@ -57,6 +59,7 @@ function App() {
   return (
     <div className="App">
 
+      {/* Home - PAGE */}
       <div className="page home  active ">
         <div className="page-inner">
 
@@ -173,111 +176,8 @@ function App() {
           </div>
         </div>
       </div>
-      <div className="sheet addProduct hide">
-          <div className="sheet-inner">
-
-          <div className="sheet-header"
-            onTouchMove={
-              (e) => {
-                if (e.touches[0].clientY < 100) {
-                  closeSheet('addProduct')
-                }
-              }
-            }
-          >
-            <div className="sheet-header-inner">
-              <div className="header-button">
-              </div>
-              <div className="header-title">
-                <h3>Add product</h3>
-              </div>
-              <div className="option">:</div>
-            </div>
-          </div>
-          <div className="sheet-content">
-            <div className="sheet-content-inner">
-              <p>
-                Lorem ipsum dolor sit amet, consectetur adipiscing elit.
-              </p>
-              <br/>
-              <p>
-                Lorem ipsum dolor sit amet, consectetur adipiscing elit.
-              </p>
-              <br/>
-              <p>
-                Lorem ipsum dolor sit amet, consectetur adipiscing elit.
-              </p>
-              <br/>
-              <p>
-                Lorem ipsum dolor sit amet, consectetur adipiscing elit.
-              </p>
-              <br/>
-              <p>
-                Lorem ipsum dolor sit amet, consectetur adipiscing elit.
-              </p>
-              <br/>
-              <p>
-                Lorem ipsum dolor sit amet, consectetur adipiscing elit.
-              </p>
-              <br/>
-              <p>
-                Lorem ipsum dolor sit amet, consectetur adipiscing elit.
-              </p>
-              <br/>
-              <p>
-                Lorem ipsum dolor sit amet, consectetur adipiscing elit.
-              </p>
-              <br/>
-              <p>
-                Lorem ipsum dolor sit amet, consectetur adipiscing elit.
-              </p>
-              <br/>
-              <p>
-                Lorem ipsum dolor sit amet, consectetur adipiscing elit.
-              </p>
-              <br/>
-              <p>
-                Lorem ipsum dolor sit amet, consectetur adipiscing elit.
-              </p>
-              <br/>
-              <p>
-                Lorem ipsum dolor sit amet, consectetur adipiscing elit.
-              </p>
-              <br/>
-              <p>
-                Lorem ipsum dolor sit amet, consectetur adipiscing elit.
-              </p>
-              <br/>
-              <p>
-                Lorem ipsum dolor sit amet, consectetur adipiscing elit.
-              </p>
-              <br/>
-              <p>
-                Lorem ipsum dolor sit amet, consectetur adipiscing elit.
-              </p>
-              <br/>
-              <p>
-                Lorem ipsum dolor sit amet, consectetur adipiscing elit.
-              </p>
-              <br/>
-              <p>
-                Lorem ipsum dolor sit amet, consectetur adipiscing elit.
-              </p>
-              <br/>
-              <p>
-                Lorem ipsum dolor sit amet, consectetur adipiscing elit.
-              </p>
-              <br/>
-              <p>
-                Lorem ipsum dolor sit amet, consectetur adipiscing elit.
-              </p>
-              <br/>
-            </div>
-          </div>
-
-              </div>
-        </div>
-      
+     
+      {/* Order Single - PAGE */}
       <div className="page orders hide  ">
         <div className="page-inner">
 
@@ -685,7 +585,7 @@ function App() {
         </div>
       </div>
       
-      
+      {/* Product - PAGE*/}
       <div className="page products hide  ">
         <div className="page-inner">
 
@@ -719,87 +619,224 @@ function App() {
           </div>
           <div className="page-content">
             <div className="page-content-inner">
-              <p>
-                Lorem ipsum dolor sit amet, consectetur adipiscing elit.
-              </p>
-              <br/>
-              <p>
-                Lorem ipsum dolor sit amet, consectetur adipiscing elit.
-              </p>
-              <br/>
-              <p>
-                Lorem ipsum dolor sit amet, consectetur adipiscing elit.
-              </p>
-              <br/>
-              <p>
-                Lorem ipsum dolor sit amet, consectetur adipiscing elit.
-              </p>
-              <br/>
-              <p>
-                Lorem ipsum dolor sit amet, consectetur adipiscing elit.
-              </p>
-              <br/>
-              <p>
-                Lorem ipsum dolor sit amet, consectetur adipiscing elit.
-              </p>
-              <br/>
-              <p>
-                Lorem ipsum dolor sit amet, consectetur adipiscing elit.
-              </p>
-              <br/>
-              <p>
-                Lorem ipsum dolor sit amet, consectetur adipiscing elit.
-              </p>
-              <br/>
-              <p>
-                Lorem ipsum dolor sit amet, consectetur adipiscing elit.
-              </p>
-              <br/>
-              <p>
-                Lorem ipsum dolor sit amet, consectetur adipiscing elit.
-              </p>
-              <br/>
-              <p>
-                Lorem ipsum dolor sit amet, consectetur adipiscing elit.
-              </p>
-              <br/>
-              <p>
-                Lorem ipsum dolor sit amet, consectetur adipiscing elit.
-              </p>
-              <br/>
-              <p>
-                Lorem ipsum dolor sit amet, consectetur adipiscing elit.
-              </p>
-              <br/>
-              <p>
-                Lorem ipsum dolor sit amet, consectetur adipiscing elit.
-              </p>
-              <br/>
-              <p>
-                Lorem ipsum dolor sit amet, consectetur adipiscing elit.
-              </p>
-              <br/>
-              <p>
-                Lorem ipsum dolor sit amet, consectetur adipiscing elit.
-              </p>
-              <br/>
-              <p>
-                Lorem ipsum dolor sit amet, consectetur adipiscing elit.
-              </p>
-              <br/>
-              <p>
-                Lorem ipsum dolor sit amet, consectetur adipiscing elit.
-              </p>
-              <br/>
-              <p>
-                Lorem ipsum dolor sit amet, consectetur adipiscing elit.
-              </p>
-              <br/>
+            <section className="quick-menus">
+
+              <div className="quick-menu"
+                onClick={
+                  () => {
+                    changePage('allProducts')
+                  }
+                }
+              >
+                <div className="menu-icon"></div>
+                <div className="menu-title">All Products</div>
+                <div className="menu-action"></div>
+              </div>
+              <div className="quick-menu">
+                <div className="menu-icon"></div>
+                <div className="menu-title">Inventory</div>
+                <div className="menu-action"></div>
+              </div>
+              <div className="quick-menu">
+                <div className="menu-icon"></div>
+                <div className="menu-title">Collections</div>
+                <div className="menu-action"></div>
+              </div>
+
+            </section>
+            <section className="products-list">
+                <div className="title">Recently updated products</div>
+                <div className="products">
+                  <div className="products-inner">
+                    {
+                      [1,2,3,4,5].map((product, index) => {
+                          return (<div className="product" >
+                            <div className="image"></div>
+                            <div className="details">
+                              <div className="name">Lorem Isps Blue Variant</div>
+                              <div className="attributes">
+                                <div className="status">Active</div>
+                                <div className="available">1 available</div>
+                              </div>
+                            </div>
+                          </div>
+                      
+                          )
+                        }
+                      )
+                  } s
+                  
+                  </div>
+                </div>
+                </section>
             </div>
           </div>
 
         </div>
       </div>
+      
+      <div className="page allProducts hide  ">
+        <div className="page-inner">
+
+          <div className="page-header">
+            <div className="page-header-inner">
+              <div className="header-button"
+                onClick={
+                  () => {
+                    changePage('home')
+                  }
+                }
+              >
+                <div className="icon"></div>
+                <div className="label"></div>
+              </div>
+              <div className="header-title">
+                <h3>All products</h3>
+              </div>
+              <div className="option"
+                onClick={
+                  () => {
+                    openSheet('addProduct')
+                  }
+                }
+              
+              >
+                <div className="label"> </div>
+                <div className="icon"></div>
+              </div>
+            </div>
+          </div>
+          <div className="page-content">
+            <div className="page-content-inner">
+                <div className="products">
+                  {/* display product div n times */}
+                  {
+                    [0,1,2,3,4,5].map((product, index) => {
+                      return (
+                        <div className="product">
+                          <div className="product-image"></div>
+                          <div className="product-details">
+                            <div className="product-name">Multi-color multi-sized T-shirts</div>
+                            <div className="product-attributes">
+                              <div className="available">7 available</div>
+                              <div className="variants">16 variants</div>
+                              <div className="status">Active</div>
+                            </div>
+                          </div>
+                        </div>
+            
+                      )
+                    })
+                  }
+                </div>
+                
+            </div>
+          </div>
+
+        </div>
+      </div>
+      
+
+      <div className="sheet addProduct hide">
+          <div className="sheet-inner">
+
+          {/* Sheet Header 
+              OnDragDown sheel will collapse the
+          */}
+          <div className="sheet-header"
+            onTouchMove={
+              (e) => {
+                if (e.touches[0].clientY < 100) {
+                  closeSheet('addProduct')
+                }
+              }
+            }
+          >
+            <div className="sheet-header-inner">
+              <div className="header-button">
+              </div>
+              <div className="header-title">
+                <h3>Add product</h3>
+              </div>
+              <div className="option">:</div>
+            </div>
+          </div>
+          <div className="sheet-content">
+            <div className="sheet-content-inner">
+
+              <div className="section product-name-description" >
+                <div className="section-inner">
+                  <div className="icon"></div>
+                  <div className="inputs">
+
+                    <div className="input product-name">
+                      <div className="label">
+                        <input type="text" className="editable-content" placeholder="Add Product"/>
+                      </div>
+                      <div className="description"></ div>
+                    </div>
+                    <div className="input product-description">
+                      <div className="label">
+                        <input type="text" className="editable-content" placeholder="Add Product"/>
+                      </div>
+                      <div className="description"></ div>
+                    </div>
+
+                  </div>
+                </div>
+                <div className="section-inner">
+                  <div className="icon"></div>
+                  <div className="inputs">
+
+                    <div className="input product-name">
+                      <div className="label">
+                        <input type="text" className="editable-content" placeholder="$0.00"/>
+                      </div>
+                      <div className="description"></ div>
+                    </div>
+
+                  </div>
+                </div>
+                <section className="option-section">
+                  <div className="option-head">
+                    <div className="option-title">Inventory</div>
+                    <div className="more">More</div>
+                  </div>
+                  <div className="option-body">
+                    <div className="counter-label">Available</div>
+                    <div className="counter">
+                      <div className="counter-inner">
+                        <div className="counter-button minus">
+                          <div className="icon"></div>
+                        </div>
+                        <div className="counter-input">
+                          <input type="text" placeholder="0"/>
+                        </div>
+                        <div className="counter-button add">
+                          <div className="icon"></div>
+                        </div>
+                      </div>
+                    </div>
+                  </div>
+                </section>
+                <section className="option-section variations">
+                  <div className="option-head">
+                    <div className="option-title">Options</div>
+                  </div>
+                  <div className="option-body">
+                    <div className="counter-label">Add different variations like size or color</div>
+                      <div className="button secondary option-action">View options</div>
+                    </div>
+                </section>
+              </div>
+            
+            </div>
+          </div>
+
+              </div>
+        </div>
+      
+      {/* Store - PAGE*/}
       <div className="page store hide  ">
         <div className="page-inner">
 
@@ -823,82 +860,31 @@ function App() {
           </div>
           <div className="page-content">
             <div className="page-content-inner">
-              <p>
-                Lorem ipsum dolor sit amet, consectetur adipiscing elit.
-              </p>
-              <br/>
-              <p>
-                Lorem ipsum dolor sit amet, consectetur adipiscing elit.
-              </p>
-              <br/>
-              <p>
-                Lorem ipsum dolor sit amet, consectetur adipiscing elit.
-              </p>
-              <br/>
-              <p>
-                Lorem ipsum dolor sit amet, consectetur adipiscing elit.
-              </p>
-              <br/>
-              <p>
-                Lorem ipsum dolor sit amet, consectetur adipiscing elit.
-              </p>
-              <br/>
-              <p>
-                Lorem ipsum dolor sit amet, consectetur adipiscing elit.
-              </p>
-              <br/>
-              <p>
-                Lorem ipsum dolor sit amet, consectetur adipiscing elit.
-              </p>
-              <br/>
-              <p>
-                Lorem ipsum dolor sit amet, consectetur adipiscing elit.
-              </p>
-              <br/>
-              <p>
-                Lorem ipsum dolor sit amet, consectetur adipiscing elit.
-              </p>
-              <br/>
-              <p>
-                Lorem ipsum dolor sit amet, consectetur adipiscing elit.
-              </p>
-              <br/>
-              <p>
-                Lorem ipsum dolor sit amet, consectetur adipiscing elit.
-              </p>
-              <br/>
-              <p>
-                Lorem ipsum dolor sit amet, consectetur adipiscing elit.
-              </p>
-              <br/>
-              <p>
-                Lorem ipsum dolor sit amet, consectetur adipiscing elit.
-              </p>
-              <br/>
-              <p>
-                Lorem ipsum dolor sit amet, consectetur adipiscing elit.
-              </p>
-              <br/>
-              <p>
-                Lorem ipsum dolor sit amet, consectetur adipiscing elit.
-              </p>
-              <br/>
-              <p>
-                Lorem ipsum dolor sit amet, consectetur adipiscing elit.
-              </p>
-              <br/>
-              <p>
-                Lorem ipsum dolor sit amet, consectetur adipiscing elit.
-              </p>
-              <br/>
-              <p>
-                Lorem ipsum dolor sit amet, consectetur adipiscing elit.
-              </p>
-              <br/>
-              <p>
-                Lorem ipsum dolor sit amet, consectetur adipiscing elit.
-              </p>
-              <br/>
+            <section className="quick-menus">
+
+              <div className="quick-menu">
+                <div className="menu-icon"></div>
+                <div className="menu-title">Customers</div>
+                <div className="menu-action"></div>
+              </div>
+              <div className="quick-menu">
+                <div className="menu-icon"></div>
+                <div className="menu-title">Discounts</div>
+                <div className="menu-action"></div>
+              </div>
+              <div className="quick-menu">
+                <div className="menu-icon"></div>
+                <div className="menu-title">Settings</div>
+                <div className="menu-action"></div>
+              </div>
+              <div className="quick-menu">
+                <div className="menu-icon"></div>
+                <div className="menu-title">Support</div>
+                <div className="menu-action"></div>
+              </div>
+
+              </section>
+
             </div>
           </div>
 
@@ -923,6 +909,7 @@ function App() {
 
       </div>
       
+      {/* Navigation */}
       <div className="navigation">
         <div className="navigation-inner">
 
