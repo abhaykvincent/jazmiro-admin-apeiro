@@ -8,6 +8,7 @@ import './style/orders.scss';
 import './style/allOrders.scss';
 import './style/order-single.scss';
 import './style/products.scss'
+import './style/add-product.scss'
 import { useState } from 'react';
 
 function App() {
@@ -58,6 +59,7 @@ function App() {
   return (
     <div className="App">
 
+      {/* Home - PAGE */}
       <div className="page home  active ">
         <div className="page-inner">
 
@@ -174,7 +176,8 @@ function App() {
           </div>
         </div>
       </div>
-      
+     
+      {/* Order Single - PAGE */}
       <div className="page orders hide  ">
         <div className="page-inner">
 
@@ -732,9 +735,14 @@ function App() {
 
         </div>
       </div>
+      
+
       <div className="sheet addProduct hide">
           <div className="sheet-inner">
 
+          {/* Sheet Header 
+              OnDragDown sheel will collapse the
+          */}
           <div className="sheet-header"
             onTouchMove={
               (e) => {
@@ -754,11 +762,81 @@ function App() {
             </div>
           </div>
           <div className="sheet-content">
-            <div className="sheet-content-inner"></div>
+            <div className="sheet-content-inner">
+
+              <div className="section product-name-description" >
+                <div className="section-inner">
+                  <div className="icon"></div>
+                  <div className="inputs">
+
+                    <div className="input product-name">
+                      <div className="label">
+                        <input type="text" className="editable-content" placeholder="Add Product"/>
+                      </div>
+                      <div className="description"></ div>
+                    </div>
+                    <div className="input product-description">
+                      <div className="label">
+                        <input type="text" className="editable-content" placeholder="Add Product"/>
+                      </div>
+                      <div className="description"></ div>
+                    </div>
+
+                  </div>
+                </div>
+                <div className="section-inner">
+                  <div className="icon"></div>
+                  <div className="inputs">
+
+                    <div className="input product-name">
+                      <div className="label">
+                        <input type="text" className="editable-content" placeholder="$0.00"/>
+                      </div>
+                      <div className="description"></ div>
+                    </div>
+
+                  </div>
+                </div>
+                <section className="option-section">
+                  <div className="option-head">
+                    <div className="option-title">Inventory</div>
+                    <div className="more">More</div>
+                  </div>
+                  <div className="option-body">
+                    <div className="counter-label">Available</div>
+                    <div className="counter">
+                      <div className="counter-inner">
+                        <div className="counter-button minus">
+                          <div className="icon"></div>
+                        </div>
+                        <div className="counter-input">
+                          <input type="text" placeholder="0"/>
+                        </div>
+                        <div className="counter-button add">
+                          <div className="icon"></div>
+                        </div>
+                      </div>
+                    </div>
+                  </div>
+                </section>
+                <section className="option-section variations">
+                  <div className="option-head">
+                    <div className="option-title">Options</div>
+                  </div>
+                  <div className="option-body">
+                    <div className="counter-label">Add different variations like size or color</div>
+                      <div className="button secondary option-action">View options</div>
+                    </div>
+                </section>
+              </div>
+            
+            </div>
+          </div>
 
               </div>
         </div>
       
+      {/* Store - PAGE*/}
       <div className="page store hide  ">
         <div className="page-inner">
 
@@ -831,6 +909,7 @@ function App() {
 
       </div>
       
+      {/* Navigation */}
       <div className="navigation">
         <div className="navigation-inner">
 
