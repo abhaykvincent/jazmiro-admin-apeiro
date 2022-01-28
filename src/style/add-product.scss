@@ -125,3 +125,44 @@
         grid-template-columns: 1fr;
     }
 }
+.sheet.addOption{
+    .and-select{
+        overflow: hidden!important;
+        width: 100%;
+    }
+    .options{
+        .ant-collapse-header{
+            display: grid;
+            grid-template-columns:auto 8px*4 ;
+
+            font-weight: bold !important;
+            div{
+                display: grid !important;
+                //grid position last column
+                grid-area: 2/3/1/2 !important;
+            }
+        }
+        .option-values{
+            .option-values-inner{
+
+                display: grid !important;
+                grid-template-columns:auto 8px*4 ;
+                gap: 8px;
+                margin-top: 8px*2;
+            }
+            .value-item-inner{
+                background-color: #00806009;
+                margin-top: 8px*1;  
+                padding: 8px;
+            }
+        }
+        .icon.add{
+            background-image: url('../../src/media/images/icons/ios-plus__green.svg');
+            background-size: 50%;
+        }
+        .icon.delete{
+            background-image: url('../../src/media/images/icons/material-delete.svg');
+            background-size: 50%;
+        }
+    }
+}
