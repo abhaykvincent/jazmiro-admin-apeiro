@@ -1,4 +1,7 @@
-
+//Ant Design
+import { Collapse,AutoComplete} from 'antd';
+import $ from 'jquery';
+import "antd/dist/antd.css";
 import './style/App.css';
 import './style/page.scss';
 import './style/navigation.scss';
@@ -9,13 +12,76 @@ import './style/allOrders.scss';
 import './style/order-single.scss';
 import './style/products.scss'
 import './style/add-product.scss'
-import { useState } from 'react';
+import { useEffect, useState } from 'react';
 
-function App() {
+
+const { Panel } = Collapse;
+
+//Product options
+function App() {      
   //state to store list of pages
   const [history, setHistory] = useState([]);
   const [customerName, setCustomerName] = useState('John Doefghokff');
   const [orders, setOrders] = useState([1,2,3,4,5,6]);
+
+  const [optionValueHide, setOptionValueHide] = useState(true);
+  const [currentOptionValue, setCurrentOptionValue] = useState('');
+
+  const [currentOption, setCurrentOption] = useState('');
+  const [options, setOptions] = useState([
+    {
+      value: 'Size',
+      active: false,
+      values:["S"]
+
+
+    },
+    {
+      value: 'Color',
+      active: false,
+      values:[]
+    },
+    {
+      value: 'Material',
+      active: false,
+      values:[]
+    },
+    {
+      value: 'Style',
+      active: false,
+      values:[]
+    },
+  ]);
+  const [optionsValueListHTML, setOptionsValueListHTML] = useState('');
+
+
+  useEffect(() => {
+    let optionsValueListHTMLtemp=(<div className="value-list">
+      {
+        options.map((option,index) => {
+          if (option.active) {
+
+            return (
+              <div className="value-item" key={index}>
+                  {
+                    option.values.map((value,index) => {
+                      return (
+                        <div className="value-item-inner">
+                  <div className="value-item-label">{option.values[index]}</div>
+                  <div className="value-item-icon delete"></div>
+                </div>
+                      )
+                    })
+                  }
+              </div>
+            )
+          }
+        }
+        )
+      }
+    </div>)
+    setOptionsValueListHTML(optionsValueListHTMLtemp);
+  }, [options])
 
   const changePage = (page) => { 
 
@@ -58,7 +124,6 @@ function App() {
   //close spesipc sheet
   const closeSheet = () => {
     console.log(history[0])
-    debugger
     if(history.length > 1){
     document.querySelector(`.sheet.${history[0]}`).classList.remove('level-one');
   } 
@@ -670,7 +735,7 @@ function App() {
                   <div className="products-inner">
                     {
                       [1,2,3,4,5].map((product, index) => {
-                          return (<div className="product" >
+                          return (<div className="product" key={index}>
                             <div className="image"></div>
                             <div className="details">
                               <div className="name">Lorem Isps Blue Variant</div>
@@ -733,7 +798,7 @@ function App() {
                   {
                     [0,1,2,3,4,5].map((product, index) => {
                       return (
-                        <div className="product">
+                        <div className="product" key={index}>
                           <div className="product-image"></div>
                           <div className="product-details">
                             <div className="product-name">Multi-color multi-sized T-shirts</div>
@@ -889,77 +954,95 @@ function App() {
           </div>
           <div className="sheet-content">
             <div className="sheet-content-inner">
-
-              <div className="section product-name-description" >
-                <div className="section-inner">
-                  <div className="icon"></div>
-                  <div className="inputs">
-
-                    <div className="input product-name">
-                      <div className="label">
-                        <input type="text" className="editable-content" placeholder="Add Product"/>
+              <section className="options"> 
+                <div className="option-list"></div>
+                <div className="option-new">
+                  {/* Add ant accordian */}
+                  <Collapse accordion>
+                    <Panel header="Add New" key="1">
+                      <div className="option-values"> 
+                        <div className="option-values-inner">
+                          <AutoComplete
+                              style={{
+                              }}
+                              options={options}
+                              onSelect={
+                                (value,option) => {
+                                  console.log(value,option)
+                                  setCurrentOption(value)
+                                  setOptionValueHide(false)
+                                  //settate oblect
+                                  let optionsTEMP = [...options];
+                                  //select option with value selected
+                                  optionsTEMP.map((option,index) => {
+                                    if (option.value === value) {
+                                      optionsTEMP[index].active = true
+                                    }
+                                  }
+                                  )
+                                  setOptions(optionsTEMP)
+                                }
+                              }
+                              placeholder="Size, Colour ..."
+                              filterOption={(inputValue, option) =>
+                                option.value.toUpperCase().indexOf(inputValue.toUpperCase()) !== -1
+                              }
+                          />
+                          <div className="icon delete"></div> 
+                        </div>
                       </div>
-                      <div className="description"></ div>
-                    </div>
-                    <div className="input product-description">
-                      <div className="label">
-                        <input type="text" className="editable-content" placeholder="Add Product"/>
-                      </div>
-                      <div className="description"></ div>
-                    </div>
+                      
+                      <div className="option-values list">
+                        <div className="option-values-inner">
+                          <AutoComplete
 
-                  </div>
+                            style={{
+                              height:optionValueHide? 0: 'auto',
+                              overflow: 'hidden'
+                            }}
+                            placeholder="S,M,L,XL,XXL"
+                            filterOption={(inputValue, option) =>
+                              option.value.toUpperCase().indexOf(inputValue.toUpperCase()) !== -1
+                            }
+                            onChange={
+                              (value) => {
+                                setCurrentOptionValue(value)
+                              }
+                            }
+                            allowClear={true}
+                          />
+                          <div className="icon add"
+                            onClick={
+                              () => {
+                                let optionsTEMP= [...options];
+                                optionsTEMP.map((option,index) => {
+                                  if (option.value === currentOption) {
+                                    optionsTEMP[index].values.push(currentOptionValue)
+                                  }
+                                }
+                                )
+                                console.log(optionsTEMP)
+                                setOptions(optionsTEMP)
+                                  setCurrentOptionValue('')
+                                  console.log($('.ant-select-selection-search-input').val())
+                                //clear ant-select-selection-search-input using jquery
+
+                              }
+                            }
+                          ></div>
+                        </div>
+                        {optionsValueListHTML}
+                      </div>
+                      
+                    </Panel>
+                  </Collapse>
                 </div>
-                <div className="section-inner">
-                  <div className="icon"></div>
-                  <div className="inputs">
-
-                    <div className="input product-name">
-                      <div className="label">
-                        <input type="text" className="editable-content" placeholder="$0.00"/>
-                      </div>
-                      <div className="description"></ div>
-                    </div>
-
-                  </div>
-                </div>
-                <section className="option-section">
-                  <div className="option-head">
-                    <div className="option-title">Inventory</div>
-                    <div className="more">More</div>
-                  </div>
-                  <div className="option-body">
-                    <div className="counter-label">Available</div>
-                    <div className="counter">
-                      <div className="counter-inner">
-                        <div className="counter-button minus">
-                          <div className="icon"></div>
-                        </div>
-                        <div className="counter-input">
-                          <input type="text" placeholder="0"/>
-                        </div>
-                        <div className="counter-button add">
-                          <div className="icon"></div>
-                        </div>
-                      </div>
-                    </div>
-                  </div>
-                </section>
-                <section className="option-section variations">
-                  <div className="option-head">
-                    <div className="option-title">Options</div>
-                  </div>
-                  <div className="option-body">
-                    <div className="counter-label">Add different variations like size or color</div>
-                      <div className="button secondary option-action">View options</div>
-                    </div>
-                </section>
-              </div>
-            
+                <div className="add-option"></div>
+              </section>
             </div>
           </div>
 
-              </div>
+          </div>
         </div>
       
       {/* Store - PAGE*/}
@@ -1028,7 +1111,6 @@ function App() {
           (e) => {
             if (e.touches[0].clientY < 100) {
               console.log(history[history.length - 1])
-              debugger
               closeSheet()
             }
           }
