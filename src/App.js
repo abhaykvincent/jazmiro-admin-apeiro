@@ -12,37 +12,19 @@ import './style/add-product.scss'
 import { useEffect, useState, } from 'react';
 import {useSelector, useDispatch} from 'react-redux';
 import Product from './pages/products/Product';
+import {addPageHistory,changePageTest} from './features/history';
 
 
 function App() {
 
 
   let productsList=useSelector(state=>state.products.data);
-  
+  const dispatch=useDispatch();
   //state to store list of pages
   const [history, setHistory] = useState([]);
   const [customerName, setCustomerName] = useState('John Doefghokff');
   const [orders, setOrders] = useState([1,2,3,4,5,6]);
 
-  const changePage = (page) => { 
-
-    
-    document.querySelector('.sheet').classList.remove('active');
-    /* document.querySelector('.level-one').classList.remove('active'); */
-    if(document.querySelector('.level-one') != null){
-      document.querySelector('.level-one').classList.remove('level-one')
-    }
-    
-    document.querySelector('.page.active').classList.add('hide');
-    document.querySelector('.page.active').classList.remove('active');
-
-    
-    document.querySelector(`.page.${page}`).classList.add('active');
-    document.querySelector(`.page.${page}`).classList.remove('hide');
-    document.querySelector('.sheet-cover-black').classList.remove('active');
-    
-
-  }
   //open spesipic sheet
   const openSheet = (sheet) => {
     let sheetTEMP = [...history, sheet];
@@ -102,7 +84,11 @@ function App() {
           </div>
           <div className="page-content">
             <div className="page-content-inner">
-              <section className="welcome">
+              <section className="welcome"  
+              onClick={()=>{
+                dispatch(addPageHistory('home'));
+              }}  
+              >
                 <h1>Welcome to Apeiro, Mirza</h1>
                 <p>Moving along nicely</p>
               </section>
@@ -130,7 +116,7 @@ function App() {
                 <div className="order" 
                 onClick={
                   () => {
-                    changePage('order-single');
+                    dispatch(changePageTest('order-single'));
                   }
                 }>
                   <div className="meta">
@@ -153,7 +139,7 @@ function App() {
                 <div className="order" 
                 onClick={
                   () => {
-                    changePage('order-single');
+                    dispatch(changePageTest('order-single'));
                   }
                 }>
                   <div className="meta">
@@ -176,7 +162,7 @@ function App() {
                 <div className="order" 
                 onClick={
                   () => {
-                    changePage('order-single');
+                    dispatch(changePageTest('order-single'));
                   }
                 }>
                   <div className="meta">
@@ -213,7 +199,7 @@ function App() {
               <div className="header-button"
                 onClick={
                   () => {
-                    changePage('home')
+                    dispatch(changePageTest('order-single'));
                   }
                 }
               >
@@ -273,7 +259,7 @@ function App() {
                 <div className="quick-menu"
                   onClick={
                     () => {
-                      changePage('allOrders')
+                      dispatch(changePageTest('order-single'));
                     }
                   }
                 >
@@ -297,7 +283,7 @@ function App() {
                 <div className="order" 
                 onClick={
                   () => {
-                    changePage('order-single');
+                    dispatch(changePageTest('order-single'));
                   }
                 }>
                   <div className="meta">
@@ -320,7 +306,7 @@ function App() {
                 <div className="order" 
                 onClick={
                   () => {
-                    changePage('order-single');
+                    dispatch(changePageTest('order-single'));
                   }
                 }>
                   <div className="meta">
@@ -343,7 +329,7 @@ function App() {
                 <div className="order" 
                 onClick={
                   () => {
-                    changePage('order-single');
+                    dispatch(changePageTest('order-single'));
                   }
                 }>
                   <div className="meta">
@@ -378,7 +364,7 @@ function App() {
               <div className="header-button"
                 onClick={
                   () => {
-                    changePage('home')
+                    dispatch(changePageTest('home'));
                   }
                 }
               >
@@ -401,7 +387,7 @@ function App() {
                 <div className="order"
                   onClick={
                     () => {
-                      changePage('order-single')
+                      dispatch(changePageTest('order-single'));
                     }
                   }
                 >
@@ -475,7 +461,7 @@ function App() {
               <div className="header-button"
                 onClick={
                   () => {
-                    changePage('home')
+                    dispatch(changePageTest('home'));
                   }
                 }
               >
@@ -622,7 +608,7 @@ function App() {
               <div className="header-button"
                 onClick={
                   () => { 
-                    changePage('home')
+                    dispatch(changePageTest('home'));
                   }
                 }
               >
@@ -652,7 +638,7 @@ function App() {
               <div className="quick-menu"
                 onClick={
                   () => {
-                    changePage('allProducts')
+                    dispatch(changePageTest('allProducts'));
                   }
                 }
               >
@@ -678,7 +664,7 @@ function App() {
                   <div className="products-inner">
                     {
                       productsList.map((product, index) => {
-                          return (<div className="product" >
+                          return (<div className="product" key={index}>
                             <div className="image"></div>
                             <div className="details">
                               <div className="name">{product.name}</div>
@@ -711,7 +697,7 @@ function App() {
               <div className="header-button"
                 onClick={
                   () => {
-                    changePage('home')
+                    dispatch(changePageTest('home'));
                   }
                 }
               >
@@ -741,7 +727,7 @@ function App() {
                   {
                     productsList.map((product, index) => {
                       return (
-                        <div className="product">
+                        <div className="product" key={index}>
                           <div className="product-image"></div>   
                           <div className="product-details">
                             <div className="product-name">{product.name}</div>
@@ -979,7 +965,7 @@ function App() {
               <div className="header-button"
                 onClick={
                   () => {
-                    changePage('home')
+                    dispatch(changePageTest('home'));
                   }
                 }
               >
@@ -1052,7 +1038,7 @@ function App() {
           <div className="navigation-button home"
             onClick={
               () => {
-                changePage('home')
+                dispatch(changePageTest('home'));
               }
             }
           >
@@ -1062,7 +1048,7 @@ function App() {
           <div className="navigation-button orders"
             onClick={
               () => {
-                changePage('orders')
+                dispatch(changePageTest('orders'));
               }
             }
           >
@@ -1072,7 +1058,7 @@ function App() {
           <div className="navigation-button products"
             onClick={
               () => {
-                changePage('products')
+                dispatch(changePageTest('products'));
               }
             }
           >
@@ -1082,7 +1068,7 @@ function App() {
           <div className="navigation-button store"
             onClick={
               () => {
-                changePage('store')
+                dispatch(changePageTest('store'));
               }
             }
           >
