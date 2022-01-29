@@ -1,6 +1,6 @@
 import React,{useState} from 'react'
 import { useDispatch } from 'react-redux';
-import { addPageHistory, changePageTest } from '../../features/history';
+import { addPageHistory, changePage } from '../../features/history';
 
 function Home() {
     const [customerName, setCustomerName] = useState('John Doefghokff');
@@ -45,12 +45,12 @@ function Home() {
                 </div>
 
               </section>
-              <section className="order-list">
+              <section className="order-list">  
                 <div className="date-label title">Orders to fulfill</div>
                 <div className="order" 
                 onClick={
                   () => {
-                    dispatch(changePageTest('order-single'));
+                    dispatch(changePage('order-single'));
                   }
                 }>
                   <div className="meta">
@@ -73,7 +73,7 @@ function Home() {
                 <div className="order" 
                 onClick={
                   () => {
-                    dispatch(changePageTest('order-single'));
+                    dispatch(changePage('order-single'));
                   }
                 }>
                   <div className="meta">
@@ -96,7 +96,7 @@ function Home() {
                 <div className="order" 
                 onClick={
                   () => {
-                    dispatch(changePageTest('order-single'));
+                    dispatch(changePage('order-single'));
                   }
                 }>
                   <div className="meta">
