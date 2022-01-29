@@ -13,6 +13,7 @@ import { useEffect, useState, } from 'react';
 import {useSelector, useDispatch} from 'react-redux';
 import Product from './pages/products/Product';
 import {addPageHistory,changePageTest} from './features/history';
+import Home from './pages/home/Home';
 
 
 function App() {
@@ -69,7 +70,8 @@ function App() {
     <div className="App">
 
       {/* Home - PAGE */}
-      <div className="page home  active ">
+      <Home/>
+      {/* <div className="page home  active ">
         <div className="page-inner">
 
           <div className="page-header">
@@ -189,7 +191,7 @@ function App() {
           </div>
         </div>
       </div>
-     
+      */}
       {/* Order Single - PAGE */}
       <div className="page orders hide  ">
         <div className="page-inner">
