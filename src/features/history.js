@@ -20,7 +20,7 @@ export const historySlice = createSlice({
             } 
         },
 
-        changePageTest:(state, action) => {
+        changePage:(state, action) => {
             state.page[0]=action.payload;
             let page = action.payload;
 
@@ -38,8 +38,43 @@ export const historySlice = createSlice({
             document.querySelector(`.page.${page}`).classList.remove('hide');
             document.querySelector('.sheet-cover-black').classList.remove('active');
             
+        },
+        openSheet: (state, action) => {
+
+            //add to history.sheet list
+            state.sheet.push(action.payload);
+            //DOM class magipulation
+            if(state.sheet.length > 1){
+                document.querySelector(`.sheet.${state.history.sheet[0]}`).classList.add('level-one');
+                document.querySelector(`.page.active`).classList.add('level-two');
+                document.querySelector(`.page.level-one`).classList.remove('level-two');
+              }
+            document.querySelector('.sheet-cover-black').classList.add('active');
+            document.querySelector('.sheet-cover-black').classList.add('level-up');
+        
+        
+            document.querySelector('.page.active').classList.add('level-one');
+        
+            document.querySelector(`.sheet.${action.payload}`).classList.add('active');
+            document.querySelector(`.sheet.${action.payload}`).classList.remove('hide');    
+        },
+        closeSheet: (state, action) => {
+            let sheetHistory = state.sheet;
+            console.log(sheetHistory);  
+
+            if(sheetHistory.length > 1){
+            document.querySelector(`.sheet.${sheetHistory[sheetHistory.length-1]}`).classList.remove('level-one');
+          } 
+            state.sheet=sheetHistory.slice(0, sheetHistory.length - 1);
+            document.querySelector(`.sheet.${sheetHistory[sheetHistory.length-1] }`).classList.remove('active');
+            // if has class .active in sheet
+            if(!document.querySelector(`.sheet`).classList.contains('active')){
+            document.querySelector('.sheet-cover-black').classList.remove('active');
+            document.querySelector(`.page.active`).classList.remove('level-one');
+            }
         }
-    }
+    }       
+    
 });
-export const {addPageHistory,changePageTest } = historySlice.actions;
+export const {addPageHistory,changePage,openSheet,closeSheet } = historySlice.actions;
 export default historySlice.reducer;
