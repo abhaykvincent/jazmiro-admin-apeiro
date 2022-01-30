@@ -1,73 +1,12 @@
 import React from 'react'
 import { useState } from 'react'
-import { useDispatch } from 'react-redux';
+import { useDispatch, useSelector } from 'react-redux';
+import { changePage, openSheet } from '../../features/history';
 
 function Products() {
-     //state to store list of pages
-  const [history, setHistory] = useState([]);
-  const [customerName, setCustomerName] = useState('John Doefghokff');
-  const [orders, setOrders] = useState([1,2,3,4,5,6]);
-
-  const changePage = (page) => { 
-
-    
-    document.querySelector('.sheet').classList.remove('active');
-    /* document.querySelector('.level-one').classList.remove('active'); */
-    if(document.querySelector('.level-one') != null){
-      document.querySelector('.level-one').classList.remove('level-one')
-    }
-    
-    document.querySelector('.page.active').classList.add('hide');
-    document.querySelector('.page.active').classList.remove('active');
-
-    
-    document.querySelector(`.page.${page}`).classList.add('active');
-    document.querySelector(`.page.${page}`).classList.remove('hide');
-    document.querySelector('.sheet-cover-black').classList.remove('active');
-    
-
-  }
-  //open spesipic sheet
-  const openSheet = (sheet) => {
-    let sheetTEMP = [...history, sheet];
-    setHistory([...history, sheet]);
-    
-    if(sheetTEMP.length > 1){
-      document.querySelector(`.sheet.${history[0]}`).classList.add('level-one');
-      document.querySelector(`.page.active`).classList.add('level-two');
-      document.querySelector(`.page.level-one`).classList.remove('level-two');
-    }
-    document.querySelector('.sheet-cover-black').classList.add('active');
-    document.querySelector('.sheet-cover-black').classList.add('level-up');
-
-
-    document.querySelector('.page.active').classList.add('level-one');
-
-    document.querySelector(`.sheet.${sheet}`).classList.add('active');
-    document.querySelector(`.sheet.${sheet}`).classList.remove('hide');
-  }
-  //close spesipc sheet
-  const closeSheet = () => {
-    console.log(history[0])
-    debugger
-    if(history.length > 1){
-    document.querySelector(`.sheet.${history[0]}`).classList.remove('level-one');
-  } 
-  else{
-
-  }
-    console.log(history.slice(0, history.length - 1));
-    setHistory(history.slice(0, history.length - 1));
-    document.querySelector(`.sheet.${history[history.length-1] }`).classList.remove('active');
-    // if has class .active in sheet
-    if(!document.querySelector(`.sheet`).classList.contains('active')){
-    document.querySelector('.sheet-cover-black').classList.remove('active');
-    document.querySelector(`.page.active`).classList.remove('level-one');
-    }
-
-  }
   //dispatch to open sheet
     const dispatch = useDispatch();
+    let productsList=useSelector(state=>state.products.data);
     return (
         <div className="page products hide  ">
         <div className="page-inner">
@@ -77,7 +16,7 @@ function Products() {
               <div className="header-button"
                 onClick={
                   () => {
-                    changePage('home')
+                    dispatch(changePage('home'))
                   }
                 }
               >
@@ -90,7 +29,8 @@ function Products() {
               <div className="option"
                 onClick={
                   () => {
-                    openSheet('addProduct')
+                    dispatch(openSheet('addProduct'))
+
                   }
                 }
               
@@ -100,6 +40,7 @@ function Products() {
               </div>
             </div>
           </div>
+
           <div className="page-content">
             <div className="page-content-inner">
             <section className="quick-menus">
@@ -107,7 +48,7 @@ function Products() {
               <div className="quick-menu"
                 onClick={
                   () => {
-                    changePage('allProducts')
+                    dispatch(changePage('allProducts'))
                   }
                 }
               >
@@ -137,11 +78,11 @@ function Products() {
                 <div className="products">
                   <div className="products-inner">
                     {
-                      [1,2,3,4,5].map((product, index) => {
+                      productsList.map((product, index) => {
                           return (<div className="product" >
                             <div className="image"></div>
                             <div className="details">
-                              <div className="name">Lorem Isps Blue Variant</div>
+                              <div className="name">{product.name}</div>
                               <div className="attributes">
                                 <div className="status">Active</div>
                                 <div className="available">1 available</div>
