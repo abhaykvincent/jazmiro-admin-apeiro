@@ -2,7 +2,7 @@ import React from 'react'
 import { useState } from 'react'
 import { useDispatch } from 'react-redux';
 
-function Product() {
+function Products() {
      //state to store list of pages
   const [history, setHistory] = useState([]);
   const [customerName, setCustomerName] = useState('John Doefghokff');
@@ -166,4 +166,4 @@ function Product() {
     )
 }
 
-export default Product
+export default Products
