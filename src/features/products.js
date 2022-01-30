@@ -52,6 +52,7 @@ export const productsSlice = createSlice({
     name: "products",
     initialState: {
         data: fakeProductData,
+        newProduct:{},
         loading: false,
         error: null,
     },
@@ -67,7 +68,26 @@ export const productsSlice = createSlice({
             Object.assign(product, action.payload);
         }
 
+        //new product
+        ,
+        addNewProduct: (state, action) => {
+            console.log("payload")
+            console.log(action.payload);
+            debugger
+            state.newProduct = action.payload;
+        }
+        ,
+        removeNewProduct: (state, action) => {
+            state.newProduct = {};
+        }
+        ,
+        updateNewProduct: (state, action) => {
+            state.newProduct = action.payload;
+        }
+        ,
+
     }
 });
 export const { addProduct, removeProduct, updateProduct } = productsSlice.actions;
+export const { addNewProduct, removeNewProduct, updateNewProduct } = productsSlice.actions;
 export default productsSlice.reducer;

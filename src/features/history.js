@@ -45,12 +45,13 @@ export const historySlice = createSlice({
             state.sheet.push(action.payload);
             //DOM class magipulation
             if(state.sheet.length > 1){
-                document.querySelector(`.sheet.${state.history.sheet[0]}`).classList.add('level-one');
+                console.log(state.sheet)
+                document.querySelector(`.sheet.${state.sheet[0]}`).classList.add('level-one');
                 document.querySelector(`.page.active`).classList.add('level-two');
                 document.querySelector(`.page.level-one`).classList.remove('level-two');
+                document.querySelector('.sheet-cover-black').classList.add('level-up');
               }
             document.querySelector('.sheet-cover-black').classList.add('active');
-            document.querySelector('.sheet-cover-black').classList.add('level-up');
         
         
             document.querySelector('.page.active').classList.add('level-one');
@@ -62,8 +63,10 @@ export const historySlice = createSlice({
             let sheetHistory = state.sheet;
             console.log(sheetHistory);  
 
+            document.querySelector('.sheet-cover-black').classList.remove('level-up');
             if(sheetHistory.length > 1){
             document.querySelector(`.sheet.${sheetHistory[sheetHistory.length-1]}`).classList.remove('level-one');
+            document.querySelector('.sheet-cover-black').classList.remove('level-up');
           } 
             state.sheet=sheetHistory.slice(0, sheetHistory.length - 1);
             document.querySelector(`.sheet.${sheetHistory[sheetHistory.length-1] }`).classList.remove('active');
