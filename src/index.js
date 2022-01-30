@@ -9,12 +9,14 @@ import {Provider} from 'react-redux'
 
 import productReducer from './features/products'
 import historyReducer from './features/history'
+import orderReducer from './features/orders'
 
 //Store
 const store = configureStore({
   reducer: {
     products: productReducer,
-    history: historyReducer
+    history: historyReducer,
+    orders: orderReducer
   },
 })
 
