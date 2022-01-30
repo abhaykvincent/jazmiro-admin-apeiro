@@ -22,6 +22,7 @@ function App() {
 
 
   let productsList=useSelector(state=>state.products.data);
+  let ordersList=useSelector(state=>state.orders.data);
   const dispatch=useDispatch();
   //state to store list of pages
   const [history, setHistory] = useState([]);
@@ -609,7 +610,7 @@ function App() {
             onTouchMove={
               (e) => {
                 if (e.touches[0].clientY < 100) {
-                  closeSheet()
+                  dispatch(closeSheet());
                 }
               }
             }
@@ -715,7 +716,7 @@ function App() {
               (e) => {
                 
                 if (e.touches[0].clientY < 400) {
-                  closeSheet()
+                  dispatch(closeSheet());
                 }
               }
             }

@@ -1,8 +1,9 @@
 import React,{useState} from 'react'
-import { useDispatch } from 'react-redux';
+import { useDispatch, useSelector } from 'react-redux';
 import { addPageHistory, changePage } from '../../features/history';
 
 function Home() {
+  let ordersList=useSelector(state=>state.orders.allOrders);  
     const [customerName, setCustomerName] = useState('John Doefghokff');
     const dispatch = useDispatch();
     return (
@@ -47,76 +48,37 @@ function Home() {
               </section>
               <section className="order-list">  
                 <div className="date-label title">Orders to fulfill</div>
-                <div className="order" 
-                onClick={
-                  () => {
-                    dispatch(changePage('order-single'));
-                  }
-                }>
-                  <div className="meta">
-                    <div className="order-id">#10001</div>.
-                    <div className="order-time">12.08 AM</div>
-                  </div>
-                  <div className="body">
-                    <div className="order-info">
-                      <div className="order-info-customer">{
-                        //convert string to charecter limit and 3 . at the end
-                        //customer name
-                        customerName.length > 30 ? customerName.substring(0, 30) + '...' : customerName
-                      }</div>
-                      <div className="order-tags"></div>
-                    <div className="order-items">1 Item</div>
+                {
+                  
+                  ordersList.map((order,index)=>{
+                    console.log(order)
+                  return <div className="order" key={index}
+                    onClick={
+                      () => {
+                        dispatch(changePage('order-single'));
+                      }
+                    }>
+                    <div className="meta">
+                      <div className="order-id">{order.id}</div>.
+                      <div className="order-time">{order.orderTime}</div>
                     </div>
-                    <div className="order-price">$1230.0</div>
-                  </div>
-                </div>
-                <div className="order" 
-                onClick={
-                  () => {
-                    dispatch(changePage('order-single'));
-                  }
-                }>
-                  <div className="meta">
-                    <div className="order-id">#10001</div>
-                    <div className="order-time">12.08 AM</div>
-                  </div>
-                  <div className="body">
-                    <div className="order-info">
-                      <div className="order-info-customer">{
-                        //convert string to charecter limit and 3 . at the end
-                        //customer name
-                        customerName.length > 30 ? customerName.substring(0, 30) + '...' : customerName
-                      }</div>
-                      <div className="order-tags"></div>
-                    <div className="order-items">1 Item</div>
+                    <div className="body">
+                      <div className="order-info">
+                        <div className="order-info-customer">{
+                          //convert string to charecter limit and 3 . at the end
+                          //customer name
+                          order.customer.name.length > 30 ? order.customer.name.substring(0, 30) + '...' : order.customer.name
+                        }</div>
+                        <div className="order-tags"></div>
+                      <div className="order-items">{order.items.length} Item</div>
+                      </div>
+                      <div className="order-price">${order.payment.priceSummary.total}.00</div>
                     </div>
-                    <div className="order-price">$1230.0</div>
                   </div>
-                </div>
-                <div className="order" 
-                onClick={
-                  () => {
-                    dispatch(changePage('order-single'));
-                  }
-                }>
-                  <div className="meta">
-                    <div className="order-id">#10001</div>.
-                    <div className="order-time">12.08 AM</div>
-                  </div>
-                  <div className="body">
-                    <div className="order-info">
-                      <div className="order-info-customer">{
-                        //convert string to charecter limit and 3 . at the end
-                        //customer name
-                        customerName.length > 30 ? customerName.substring(0, 30) + '...' : customerName
-                      }</div>
-                      <div className="order-tags"></div>
-                    <div className="order-items">1 Item</div>
-                    </div>
-                    <div className="order-price">$1230.0</div>
-                  </div>
-                </div>
-            </section>
+                
+                
+                  })
+                }</section>
 
               <p className="developed-at-apeiro">Developed at Apeiro Inc.</p>
             </div>
